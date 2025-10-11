@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: 77daa3f390972a74d916f5a7349565b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -789895706097388008
+    second: bl4_0
+  - first:
+      213: 6110125076260711167
+    second: bl4_1
+  - first:
+      213: 6002626595966859792
+    second: bl4_2
+  - first:
+      213: 6185160891946286804
+    second: bl4_3
+  - first:
+      213: 3042212014732444073
+    second: bl4_4
+  - first:
+      213: -9142392987419264514
+    second: bl4_5
+  - first:
+      213: 5021897026335300977
+    second: bl4_6
+  - first:
+      213: -589055780402903394
+    second: bl4_7
+  - first:
+      213: -5092212057456722132
+    second: bl4_8
+  - first:
+      213: -4795836988079771646
+    second: bl4_9
+  - first:
+      213: -2814658172839656481
+    second: bl4_10
+  - first:
+      213: -8056675106677708939
+    second: bl4_11
+  - first:
+      213: -3863623067611198528
+    second: bl4_12
+  - first:
+      213: -3092533200308618547
+    second: bl4_13
+  - first:
+      213: -3728813885376069494
+    second: bl4_14
+  - first:
+      213: -4928370764571895126
+    second: bl4_15
+  - first:
+      213: -6212211335204577074
+    second: bl4_16
+  - first:
+      213: -1873097258761990093
+    second: bl4_17
+  - first:
+      213: 6440380119067234490
+    second: bl4_18
+  - first:
+      213: 2659607484859322504
+    second: bl4_19
+  - first:
+      213: -5685682096855942371
+    second: bl4_20
+  - first:
+      213: -4554186644079625965
+    second: bl4_21
+  - first:
+      213: -1241537503106977983
+    second: bl4_22
+  - first:
+      213: -75158534224904454
+    second: bl4_23
+  - first:
+      213: -1762266865951822499
+    second: bl4_24
+  - first:
+      213: -7665449679405399685
+    second: bl4_25
+  - first:
+      213: 3057877626497358981
+    second: bl4_26
+  - first:
+      213: 1219464832502316213
+    second: bl4_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bl4_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 258
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81675745a0ab905f0800000000000000
+      internalID: -789895706097388008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 272
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffae9bf42668bc450800000000000000
+      internalID: 6110125076260711167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 263
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01abae3f51d9d4350800000000000000
+      internalID: 6002626595966859792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 263
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4deb8139f0b16d550800000000000000
+      internalID: 6185160891946286804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 314
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a18d8585bb183a20800000000000000
+      internalID: 3042212014732444073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_5
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 256
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef93ad33402bf1180800000000000000
+      internalID: -9142392987419264514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_6
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 251
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d5e410dbc51b540800000000000000
+      internalID: 5021897026335300977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 221
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e96c13083e043d7f0800000000000000
+      internalID: -589055780402903394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_8
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 207
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2fb45a0d14d459b0800000000000000
+      internalID: -5092212057456722132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_9
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 187
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20073d43ba3c17db0800000000000000
+      internalID: -4795836988079771646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_10
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 200
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd30eb3fd4350f8d0800000000000000
+      internalID: -2814658172839656481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_11
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 159
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5772eb33da0f03090800000000000000
+      internalID: -8056675106677708939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_12
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 145
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb87055a47a16ac0800000000000000
+      internalID: -3863623067611198528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_13
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 140
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcab083707d1515d0800000000000000
+      internalID: -3092533200308618547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_14
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 156
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a808d900787904cc0800000000000000
+      internalID: -3728813885376069494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_15
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 136
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa9548b6e8ea9bb0800000000000000
+      internalID: -4928370764571895126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_16
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 122
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0e97f44bac9c9a0800000000000000
+      internalID: -6212211335204577074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_17
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 132
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330dbbd97fb6106e0800000000000000
+      internalID: -1873097258761990093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_18
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 118
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab09d7f7893d06950800000000000000
+      internalID: 6440380119067234490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_19
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 108
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88092019ae2d8e420800000000000000
+      internalID: 2659607484859322504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_20
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 104
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b7a17c1466811b0800000000000000
+      internalID: -5685682096855942371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_21
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 73
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3193ec650674cc0c0800000000000000
+      internalID: -4554186644079625965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_22
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 82
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14fabf7083c25cee0800000000000000
+      internalID: -1241537503106977983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_23
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 59
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe7fa916bbf4fef0800000000000000
+      internalID: -75158534224904454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_24
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 61
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d208f4f9b2b87e0800000000000000
+      internalID: -1762266865951822499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_25
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 43
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71c86f312ade9590800000000000000
+      internalID: -7665449679405399685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_26
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c5dfdff73cf6a20800000000000000
+      internalID: 3057877626497358981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bl4_27
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bcb16dddc86ce010800000000000000
+      internalID: 1219464832502316213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bl4_0: -789895706097388008
+      bl4_1: 6110125076260711167
+      bl4_10: -2814658172839656481
+      bl4_11: -8056675106677708939
+      bl4_12: -3863623067611198528
+      bl4_13: -3092533200308618547
+      bl4_14: -3728813885376069494
+      bl4_15: -4928370764571895126
+      bl4_16: -6212211335204577074
+      bl4_17: -1873097258761990093
+      bl4_18: 6440380119067234490
+      bl4_19: 2659607484859322504
+      bl4_2: 6002626595966859792
+      bl4_20: -5685682096855942371
+      bl4_21: -4554186644079625965
+      bl4_22: -1241537503106977983
+      bl4_23: -75158534224904454
+      bl4_24: -1762266865951822499
+      bl4_25: -7665449679405399685
+      bl4_26: 3057877626497358981
+      bl4_27: 1219464832502316213
+      bl4_3: 6185160891946286804
+      bl4_4: 3042212014732444073
+      bl4_5: -9142392987419264514
+      bl4_6: 5021897026335300977
+      bl4_7: -589055780402903394
+      bl4_8: -5092212057456722132
+      bl4_9: -4795836988079771646
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

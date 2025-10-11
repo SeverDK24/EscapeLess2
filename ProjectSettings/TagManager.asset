@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - door
+  - locked
+  - key
+  - SkotKey
+  - GarageKey
+  - safeKey
+  - player
+  - safeDoor
+  - KotelDoor
+  - GarageDoor
+  - SkotDoor
+  - SafeDoor
+  - safe
+  - code
+  - medic
+  - main
+  - exit
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: superback
+    uniqueID: 2982184073
+    locked: 0
+  - name: back
+    uniqueID: 1231795063
+    locked: 0
+  - name: blood
+    uniqueID: 3380132733
+    locked: 0
+  - name: kaban
+    uniqueID: 428257793
+    locked: 0
+  - name: ghost
+    uniqueID: 94880133
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: safeIn
+    uniqueID: 1822155285
+    locked: 0
+  - name: codes
+    uniqueID: 2845261791
+    locked: 0
+  - name: safeOut
+    uniqueID: 1862697051
+    locked: 0
+  - name: player
+    uniqueID: 3655670179
+    locked: 0
+  - name: canvas
+    uniqueID: 3899215921
+    locked: 0
+  m_RenderingLayers:
+  - Default
