@@ -36,7 +36,7 @@ public class KeyReycast : MonoBehaviour
     public GameObject[] ghosts;
     private int randomGhost;
     private int ghostRandom;
-    private float timeToEvent = 15f;
+    private float timeToEvent = 12f;
     private float timeEvent = 0f;
     private float timeToDespawn = 1f;
     private bool isGhost = false;
@@ -51,6 +51,7 @@ public class KeyReycast : MonoBehaviour
 
     void Update()
     {
+        healthText.text = health + " здоров'я";
         timeToEvent -= Time.deltaTime;
         //Debug.Log(timeToEvent);
         Debug.Log(ghostRandom);
@@ -66,6 +67,7 @@ public class KeyReycast : MonoBehaviour
             {
                 ghostRandom = Random.Range(0, 3);
                 ghosts[ghostRandom].SetActive(true);
+                health -= 1;
                 isGhost = true;
                 timeToEvent = 15f;
             }
