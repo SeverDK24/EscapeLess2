@@ -31,8 +31,10 @@ public class KeyReycast : MonoBehaviour
     private bool isClaimed = false;
     private bool isMainEnter = false;
     private bool isAllClaimed = false;
-
-
+    public AudioSource music;
+    //public AudioClip openDoor;
+    public AudioClip scream;
+    public AudioClip screamer;
     public GameObject[] ghosts;
     private int randomGhost;
     private int ghostRandom;
@@ -45,7 +47,7 @@ public class KeyReycast : MonoBehaviour
     void Start()
     {
         healthText.text = health + " здоров'я";
-      
+       music = GetComponent<AudioSource>(); 
     }
 
 
@@ -67,13 +69,14 @@ public class KeyReycast : MonoBehaviour
             {
                 ghostRandom = Random.Range(0, 3);
                 ghosts[ghostRandom].SetActive(true);
+                music.PlayOneShot(screamer);
                 health -= 1;
                 isGhost = true;
                 timeToEvent = 15f;
             }
             if (ghostRandom == 2)
             {
-                Debug.Log("two");
+                music.PlayOneShot(scream);
             }
 
 

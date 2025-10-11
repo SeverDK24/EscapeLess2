@@ -12379,6 +12379,8 @@ MonoBehaviour:
   behindDoor: {fileID: 442719863}
   codeText: {fileID: 826952260}
   healthText: {fileID: 456219231}
+  music: {fileID: 0}
+  scream: {fileID: 8300000, guid: 6f63e9360d611294e80f9a10f6f44393, type: 3}
   ghosts:
   - {fileID: 700787813}
   - {fileID: 1733456848}
