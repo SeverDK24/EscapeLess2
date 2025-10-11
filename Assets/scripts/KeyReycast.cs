@@ -32,7 +32,10 @@ public class KeyReycast : MonoBehaviour
     private bool isMainEnter = false;
     private bool isAllClaimed = false;
     public AudioSource music;
-    //public AudioClip openDoor;
+    public AudioClip key;
+    public AudioClip code;
+    public AudioClip heal;
+    public AudioClip openDoor;
     public AudioClip scream;
     public AudioClip screamer;
     public GameObject[] ghosts;
@@ -156,16 +159,19 @@ public class KeyReycast : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "key")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
                 IsKotel = true;
             }
             if (hit.collider != null && hit.collider.tag == "safeKey")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
                 isSafe = true;
             }
             if (hit.collider != null && hit.collider.tag == "GarageKey")
             {
                 isGarage = true;
+                music.PlayOneShot(key);
                 Destroy(hit.collider.gameObject);
               
 
@@ -173,25 +179,30 @@ public class KeyReycast : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "SkotKey")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
                 isSkot = true;
 
             }
            if (hit.collider != null && hit.collider.tag == "GarageDoor" && isGarage)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
            if (hit.collider != null && hit.collider.tag == "KotelDoor" && IsKotel)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "SkotDoor" && isSkot)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
            
             if (hit.collider != null && hit.collider.tag == "SafeDoor" && isSafe)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
 
 
@@ -199,6 +210,7 @@ public class KeyReycast : MonoBehaviour
             {
                 codeAmount += 1;
                 codeText.text = "зібрано " + codeAmount + "/5";
+                music.PlayOneShot(code);
                 hit.collider.gameObject.SetActive(false);
                 if (codeAmount == 5)
                 {
@@ -209,6 +221,7 @@ public class KeyReycast : MonoBehaviour
             {
                 health += 1;
                 healthText.text = health + " здоров'я";
+                music.PlayOneShot(heal);
                 hit.collider.gameObject.SetActive(false);
                 if (health >= 15)
                 {
@@ -218,6 +231,7 @@ public class KeyReycast : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "main" && (isClaimed = true))
             {
                 hit.collider.gameObject.SetActive(false);
+            
               isAllClaimed = true;  
             }
            

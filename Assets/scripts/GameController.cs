@@ -8,11 +8,13 @@ public class GameController : MonoBehaviour
     public GameObject textInteract;
     private float openTime = 3f;
     public float timer;
-
+    public AudioSource music;
+    public AudioClip openDoor;
+    
    
     void Start()
     {
-       
+       music = GetComponent<AudioSource>();
     }
 
     
@@ -28,6 +30,7 @@ public class GameController : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "door")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
                 textInteract.SetActive(false);
             }
         }
