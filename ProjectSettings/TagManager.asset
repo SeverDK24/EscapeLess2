@@ -21,6 +21,19 @@ TagManager:
   - medic
   - main
   - exit
+  - Bedroom
+  - kitchen
+  - livingr
+  - electro
+  - safek
+  - coridor
+  - maink
+  - coridk
+  - electrok
+  - kitchenk
+  - livingk
+  - bedroomk
+  - pilers
   layers:
   - Default
   - TransparentFX

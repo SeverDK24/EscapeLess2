@@ -362,9 +362,6 @@ GameObject:
   m_Component:
   - component: {fileID: 201134642543005938}
   - component: {fileID: 3782862364833235358}
-  - component: {fileID: 1450060717552397947}
-  - component: {fileID: 8876358365787688621}
-  - component: {fileID: 8220547802003734052}
   - component: {fileID: 8063303031424533205}
   - component: {fileID: 1201286180434113157}
   - component: {fileID: 4736334523172241583}
@@ -450,64 +447,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1450060717552397947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889774491651682289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bbd62cc13cdd341941c4b2292feb74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8876358365787688621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889774491651682289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156f8deb029bc264191c65e0542e7d8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textInteract: {fileID: 0}
-  timer: 0
-  music: {fileID: 0}
-  openDoor: {fileID: 8300000, guid: 41fe1720cc87290469fe9f20e7503089, type: 3}
---- !u!114 &8220547802003734052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889774491651682289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c6c4cc2b188234dbae533bb1e11c7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  main: {fileID: 0}
-  textSafe: {fileID: 0}
-  textSafe1: {fileID: 0}
-  maintext: {fileID: 0}
-  behindDoor: {fileID: 0}
-  codeText: {fileID: 0}
-  healthText: {fileID: 0}
-  music: {fileID: 0}
-  key: {fileID: 8300000, guid: e61acbd62595e7443b613baaecb299ad, type: 3}
-  code: {fileID: 8300000, guid: 16e8fc5660ccae34aa682b7aafb7349e, type: 3}
-  heal: {fileID: 8300000, guid: 05c8624a54490544bb2db62a39382549, type: 3}
-  openDoor: {fileID: 8300000, guid: 41fe1720cc87290469fe9f20e7503089, type: 3}
-  scream: {fileID: 8300000, guid: 6f63e9360d611294e80f9a10f6f44393, type: 3}
-  screamer: {fileID: 8300000, guid: f66e54613867e5647b0f0a6182a1852e, type: 3}
-  ghosts:
-  - {fileID: 3275047586963134242}
-  - {fileID: 4410337428740647296}
-  - {fileID: 8755539976935804821}
 --- !u!114 &8063303031424533205
 MonoBehaviour:
   m_ObjectHideFlags: 0
