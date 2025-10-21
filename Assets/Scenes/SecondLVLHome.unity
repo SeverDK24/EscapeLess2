@@ -2482,7 +2482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &404838519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2594,7 +2594,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.907, y: -1.299, z: 0}
-  m_LocalScale: {x: 1.768976, y: 1.509816, z: 1}
+  m_LocalScale: {x: 1.2205935, y: 1.0417731, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6153,7 +6153,8 @@ Transform:
   m_LocalPosition: {x: -8.46, y: 0.128, z: 0}
   m_LocalScale: {x: 0.7044953, y: 0.125712, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1185849698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.156}
 --- !u!61 &839118770
@@ -8867,13 +8868,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185849696}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.34800187, w: 0.9374939}
-  m_LocalPosition: {x: -8.471, y: 0.107, z: 0}
-  m_LocalScale: {x: 0.70569086, y: 0.126648, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.68797445, w: 0.7257349}
+  m_LocalPosition: {x: -0.029929472, y: -0.08619325, z: 0}
+  m_LocalScale: {x: 4.407115, y: 0.18900372, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40.73}
+  m_Father: {fileID: 839118769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.94}
 --- !u!61 &1185849699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9842,7 +9843,7 @@ GameObject:
   - component: {fileID: 1402994471}
   m_Layer: 0
   m_Name: control-panel-touchscreen-electrical-switches-programmable-logic-controllers-png-favpng-mC4P12dB2kHjJHg8z6qA5W5Ys
-  m_TagString: Untagged
+  m_TagString: panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13554,8 +13555,8 @@ Transform:
   m_GameObject: {fileID: 1764832217}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.3320916, w: 0.94324714}
-  m_LocalPosition: {x: -3.917, y: -1.29, z: 0}
-  m_LocalScale: {x: 0.70569086, y: 0.126648, z: 1}
+  m_LocalPosition: {x: -3.95, y: -1.276, z: 0}
+  m_LocalScale: {x: 0.70569086, y: 0.1381223, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -15825,8 +15826,8 @@ Transform:
   m_GameObject: {fileID: 2050360706}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.34800187, w: 0.9374939}
-  m_LocalPosition: {x: -3.9, y: -1.284, z: 0}
-  m_LocalScale: {x: 0.70569086, y: 0.126648, z: 1}
+  m_LocalPosition: {x: -3.9, y: -1.358, z: 0}
+  m_LocalScale: {x: 0.76468664, y: 0.126648, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -17063,7 +17064,6 @@ SceneRoots:
   - {fileID: 872450132}
   - {fileID: 1088218460}
   - {fileID: 839118769}
-  - {fileID: 1185849698}
   - {fileID: 1764832219}
   - {fileID: 2050360708}
   - {fileID: 561489496}

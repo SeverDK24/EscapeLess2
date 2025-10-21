@@ -41,6 +41,7 @@ TagManager:
   - moving
   - hammer
   - plank
+  - panel
   layers:
   - Default
   - TransparentFX

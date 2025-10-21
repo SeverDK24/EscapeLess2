@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Reycast2LVL : MonoBehaviour
 {
+    private bool isElectro;
     private bool isLivingk = false;
     private bool isBedroomk = false;
     private bool isKitchen = false;
@@ -113,7 +114,17 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "plank" && isHammer)
             {
                 Destroy(hit.collider.gameObject);
-                electrokey.SetActive(true);
+                
+            }
+            if (hit.collider != null && hit.collider.tag == "electrok")
+            {
+                isElectro = true;
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "electro" && isElectro)
+            {
+                Destroy(hit.collider.gameObject);
+                
             }
         }
     }
