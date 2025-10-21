@@ -36,6 +36,8 @@ TagManager:
   - pilers
   - door2
   - mirror
+  - safe2
+  - lock
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Reycast2LVL : MonoBehaviour
 {
     private bool isBedroomk = false;
+    private bool isKitchen = false;
     private bool isSafek = false;
     private bool isMain = false;
     private bool isCoridk = false;
@@ -71,6 +72,15 @@ public class Reycast2LVL : MonoBehaviour
                 isMain = true;
             }
             if (hit.collider != null && hit.collider.tag == "lock" && isMain)
+            {
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "kitchenk")
+            {
+                Destroy(hit.collider.gameObject);
+                isKitchen = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "kitchen" && isKitchen)
             {
                 Destroy(hit.collider.gameObject);
             }
