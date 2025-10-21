@@ -38,6 +38,9 @@ TagManager:
   - mirror
   - safe2
   - lock
+  - moving
+  - hammer
+  - plank
   layers:
   - Default
   - TransparentFX

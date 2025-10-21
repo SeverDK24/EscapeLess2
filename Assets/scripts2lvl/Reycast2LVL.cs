@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class Reycast2LVL : MonoBehaviour
 {
+    private bool isLivingk = false;
     private bool isBedroomk = false;
     private bool isKitchen = false;
     private bool isSafek = false;
     private bool isMain = false;
     private bool isCoridk = false;
+    private bool isHammer = false;  
     private bool isEnter1 = false;  
     public GameObject maintext;
+    public GameObject electrokey;
     private float timetowrite = 2f;
     private float timetostop = 0f; 
     void Start()
@@ -84,7 +87,34 @@ public class Reycast2LVL : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
             }
-
+            if (hit.collider != null && hit.collider.tag == "livingk")
+            {
+                isLivingk = true;
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "livingr" && isLivingk)
+            {
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "coridk")
+            {
+                isCoridk = true;
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "coridor" && isCoridk)
+            {
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "hammer")
+            {
+                isHammer = true;
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "plank" && isHammer)
+            {
+                Destroy(hit.collider.gameObject);
+                electrokey.SetActive(true);
+            }
         }
     }
 
