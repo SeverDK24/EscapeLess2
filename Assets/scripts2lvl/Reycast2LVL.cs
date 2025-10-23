@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Reycast2LVL : MonoBehaviour
 {
-    private bool isElectro;
+    private bool isEnter2 = false;
+    private bool isElectro = false;
     private bool isLivingk = false;
     private bool isBedroomk = false;
     private bool isKitchen = false;
@@ -10,11 +11,16 @@ public class Reycast2LVL : MonoBehaviour
     private bool isMain = false;
     private bool isCoridk = false;
     private bool isHammer = false;  
-    private bool isEnter1 = false;  
+    private bool isEnter1 = false;
+
     public GameObject maintext;
-    public GameObject electrokey;
+    public GameObject maintext1;
+    public GameObject placed;
+    
     private float timetowrite = 2f;
-    private float timetostop = 0f; 
+    private float timetostop = 0f;
+    private float timetowrite1 = 2f;
+    private float timetostop1 = 0f;
     void Start()
     {
         
@@ -23,6 +29,18 @@ public class Reycast2LVL : MonoBehaviour
    
     void Update()
     {
+        if (isEnter2)
+        {
+            maintext1.SetActive(true);
+            timetowrite1 -= Time.deltaTime;
+
+            if (timetostop1 >= timetowrite1)
+            {
+                maintext1.SetActive(false);
+                timetowrite1 = 0;
+            }
+        }
+
         if (isEnter1)
         {
             maintext.SetActive(true);
@@ -126,6 +144,13 @@ public class Reycast2LVL : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 
             }
+            if (hit.collider != null && hit.collider.tag == "button")
+            {
+                //safek.SetActive(true);
+                //placed.SetActive(false);
+                //replaced.SetActive(true);
+            }
+
         }
     }
 
@@ -136,5 +161,13 @@ public class Reycast2LVL : MonoBehaviour
         {
             isEnter1 = true;
         }
+        if (collision.gameObject.tag == "panel")
+        {
+            isEnter2 = true;    
+        }
+
+
+
     }
+   
 }
