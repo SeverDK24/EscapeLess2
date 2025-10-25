@@ -18,10 +18,12 @@ public class Reycast2LVL : MonoBehaviour
     private bool isEnter1 = false;
     private bool isPilers = false;
     private bool isEnter3 = false;
+    private bool issafe = false;
     public GameObject ElectroPIC;
     public GameObject maintext;
     public GameObject maintext1;
     public GameObject maintext2;
+    public GameObject safetext;
     public Text healthText;
     public GameObject placed;
     public GameObject MainDoor;
@@ -33,6 +35,8 @@ public class Reycast2LVL : MonoBehaviour
     private float timetostop1 = 0f;
     private float timetowrite2 = 2f;
     private float timetostop2 = 0f;
+    private float timetowrite3 = 2f;
+    private float timetostop3 = 0f;
     private int health = 13;
     void Start()
     {
@@ -49,6 +53,18 @@ public class Reycast2LVL : MonoBehaviour
             MainDoor.SetActive(false);
             Zadveryma.SetActive(false);
             Teleport.SetActive(true);
+        }
+        if (issafe = true)
+        {
+
+            safetext.SetActive(true);
+            timetowrite3 -= Time.deltaTime;
+
+            if (timetostop3 >= timetowrite3)
+            {
+                safetext.SetActive(false);
+                timetowrite3 = 0;
+            }
         }
         if (isEnter3)
         {
@@ -187,7 +203,7 @@ public class Reycast2LVL : MonoBehaviour
                 isPilers = true;
                 Destroy(hit.collider.gameObject);
             }
-            if (hit.collider != null && hit.collider.tag == "cabel")
+            if (hit.collider != null && hit.collider.tag == "cabel" && isPilers)
             {
                 Destroy(hit.collider.gameObject);
                 isCabel = true;

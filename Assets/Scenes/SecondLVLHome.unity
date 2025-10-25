@@ -15631,7 +15631,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681407717}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -18062,6 +18062,7 @@ MonoBehaviour:
   maintext: {fileID: 194583618}
   maintext1: {fileID: 1419639971}
   maintext2: {fileID: 301774478}
+  safetext: {fileID: 0}
   healthText: {fileID: 1432819531}
   placed: {fileID: 13604874}
   MainDoor: {fileID: 1681407717}
@@ -20466,7 +20467,7 @@ Transform:
   m_GameObject: {fileID: 2146733524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.82, y: 4.474, z: 0}
+  m_LocalPosition: {x: 3.21, y: 4.474, z: 0}
   m_LocalScale: {x: 2.268, y: 1.6119999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
