@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Reycast2LVL : MonoBehaviour
 {
+    private bool isLock = false;
+    private bool isCabel = false;   
+    private bool isPlank = false;
     private bool isEnter2 = false;
     private bool isElectro = false;
     private bool isLivingk = false;
@@ -12,11 +15,14 @@ public class Reycast2LVL : MonoBehaviour
     private bool isCoridk = false;
     private bool isHammer = false;  
     private bool isEnter1 = false;
-
+    private bool isPilers = false;
+    public GameObject ElectroPIC;
     public GameObject maintext;
     public GameObject maintext1;
     public GameObject placed;
-    
+    public GameObject MainDoor;
+    public GameObject Teleport;
+    public GameObject Zadveryma;
     private float timetowrite = 2f;
     private float timetostop = 0f;
     private float timetowrite1 = 2f;
@@ -29,6 +35,12 @@ public class Reycast2LVL : MonoBehaviour
    
     void Update()
     {
+        if (isLock && isCabel && isPlank)
+        {
+            MainDoor.SetActive(false);
+            Zadveryma.SetActive(false);
+            Teleport.SetActive(true);
+        }
         if (isEnter2)
         {
             maintext1.SetActive(true);
@@ -96,6 +108,7 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "lock" && isMain)
             {
                 Destroy(hit.collider.gameObject);
+                isLock = true;
             }
             if (hit.collider != null && hit.collider.tag == "kitchenk")
             {
@@ -132,6 +145,7 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "plank" && isHammer)
             {
                 Destroy(hit.collider.gameObject);
+                isPlank = true;
                 
             }
             if (hit.collider != null && hit.collider.tag == "electrok")
@@ -146,11 +160,18 @@ public class Reycast2LVL : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.tag == "button")
             {
-                //safek.SetActive(true);
-                //placed.SetActive(false);
-                //replaced.SetActive(true);
+                ElectroPIC.SetActive(true);
             }
-
+            if (hit.collider != null && hit.collider.tag == "pilers")
+            {
+                isPilers = true;
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "cabel")
+            {
+                Destroy(hit.collider.gameObject);
+                isCabel = true;
+            }
         }
     }
 
@@ -168,6 +189,10 @@ public class Reycast2LVL : MonoBehaviour
 
 
 
+    }
+    public void CloseElectro()
+    {
+        ElectroPIC.SetActive(false);
     }
    
 }

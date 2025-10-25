@@ -22,7 +22,7 @@ public class electro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isClicked1);
+      
        if (isClicked1)
         {
            
