@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Reycast2LVL : MonoBehaviour
 {
@@ -16,9 +17,12 @@ public class Reycast2LVL : MonoBehaviour
     private bool isHammer = false;  
     private bool isEnter1 = false;
     private bool isPilers = false;
+    private bool isEnter3 = false;
     public GameObject ElectroPIC;
     public GameObject maintext;
     public GameObject maintext1;
+    public GameObject maintext2;
+    public Text healthText;
     public GameObject placed;
     public GameObject MainDoor;
     public GameObject Teleport;
@@ -27,19 +31,35 @@ public class Reycast2LVL : MonoBehaviour
     private float timetostop = 0f;
     private float timetowrite1 = 2f;
     private float timetostop1 = 0f;
+    private float timetowrite2 = 2f;
+    private float timetostop2 = 0f;
+    private int health = 13;
     void Start()
     {
-        
+        health = PlayerPrefs.GetInt("health", health);
+        healthText.text = " здоров'я: " + health;
     }
 
    
     void Update()
     {
+        healthText.text = health + " здоров'я";
         if (isLock && isCabel && isPlank)
         {
             MainDoor.SetActive(false);
             Zadveryma.SetActive(false);
             Teleport.SetActive(true);
+        }
+        if (isEnter3)
+        {
+            maintext2.SetActive(true);
+            timetowrite2 -= Time.deltaTime;
+
+            if (timetostop2 >= timetowrite2)
+            {
+                maintext2.SetActive(false);
+                timetowrite2 = 0;
+            }
         }
         if (isEnter2)
         {
@@ -172,6 +192,18 @@ public class Reycast2LVL : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 isCabel = true;
             }
+            if (hit.collider != null && hit.collider.tag == "medic")
+            {
+                health += 1;
+                Save();
+                healthText.text = health + " здоров'я";
+                //music.PlayOneShot(heal);
+                hit.collider.gameObject.SetActive(false);
+                if (health >= 7)
+                {
+                    health = 7;
+                }
+            }
         }
     }
 
@@ -186,7 +218,10 @@ public class Reycast2LVL : MonoBehaviour
         {
             isEnter2 = true;    
         }
-
+        if (collision.gameObject.tag == "doorf")
+        {
+            isEnter3 = true;    
+        }
 
 
     }
@@ -194,5 +229,8 @@ public class Reycast2LVL : MonoBehaviour
     {
         ElectroPIC.SetActive(false);
     }
-   
+    private void Save()
+    {
+        PlayerPrefs.SetInt("health", health);
+    }
 }

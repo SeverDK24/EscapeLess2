@@ -43,6 +43,9 @@ TagManager:
   - plank
   - panel
   - button
+  - cabel
+  - telep
+  - doorf
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ public class KeyReycast : MonoBehaviour
     private float timetowrite1 = 2f;
     private float timetostop1 = 0f;
     private int codeAmount = 0;
-    private int health = 13;
+    private int health = 6;
     public Text codeText;
     public Text healthText;
     private bool isEnter = false;
@@ -49,8 +49,9 @@ public class KeyReycast : MonoBehaviour
 
     void Start()
     {
-        healthText.text = health + " здоров'я";
-       music = GetComponent<AudioSource>(); 
+        healthText.text = " здоров'я: " + health;
+        music = GetComponent<AudioSource>();
+        health = PlayerPrefs.GetInt("health",health);
     }
 
 
@@ -74,6 +75,7 @@ public class KeyReycast : MonoBehaviour
                 ghosts[ghostRandom].SetActive(true);
                 music.PlayOneShot(screamer);
                 health -= 1;
+                Save();
                 isGhost = true;
                 timeToEvent = 15f;
             }
@@ -220,12 +222,13 @@ public class KeyReycast : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "medic")
             {
                 health += 1;
+                Save();
                 healthText.text = health + " здоров'я";
                 music.PlayOneShot(heal);
                 hit.collider.gameObject.SetActive(false);
-                if (health >= 15)
+                if (health >= 7)
                 {
-                    health = 14;
+                    health = 7;
                 }
             }
             if (hit.collider != null && hit.collider.tag == "main" && (isClaimed = true))
@@ -263,6 +266,9 @@ public class KeyReycast : MonoBehaviour
             isEnter = true; 
         }
     }
-    
+    private void Save()
+    {
+        PlayerPrefs.SetInt("health",health);
+    }
 
 }
