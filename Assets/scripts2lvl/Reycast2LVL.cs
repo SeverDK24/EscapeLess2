@@ -54,7 +54,7 @@ public class Reycast2LVL : MonoBehaviour
             Zadveryma.SetActive(false);
             Teleport.SetActive(true);
         }
-        if (issafe = true)
+        if (issafe)
         {
 
             safetext.SetActive(true);
@@ -238,6 +238,12 @@ public class Reycast2LVL : MonoBehaviour
         {
             isEnter3 = true;    
         }
+        if (collision.gameObject.tag == "safe2")
+        {
+            issafe = true;
+        }
+
+
 
 
     }
