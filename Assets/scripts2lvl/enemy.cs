@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,7 +20,7 @@ public class enemy : MonoBehaviour
     void Update()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position,rad);
-        if (isenter && hit..tag == "player")
+        if (isenter && hit.gameObject.tag == "player")
         {
             agent.SetDestination(target.position);
         }
