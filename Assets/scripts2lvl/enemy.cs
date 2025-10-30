@@ -3,7 +3,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class enemy : MonoBehaviour
 {
+
     [SerializeField] Transform target;
+   
+    public bool isenter = false;
     NavMeshAgent agent; 
     void Start()
     {
@@ -15,6 +18,16 @@ public class enemy : MonoBehaviour
    
     void Update()
     {
-        agent.SetDestination(target.position);  
+        if (isenter)
+        {
+            agent.SetDestination(target.position);
+        }
+         
     }
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+        
+    
+    //}
+   
 }

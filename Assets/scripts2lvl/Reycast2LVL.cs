@@ -19,11 +19,13 @@ public class Reycast2LVL : MonoBehaviour
     private bool isPilers = false;
     private bool isEnter3 = false;
     private bool issafe = false;
+    public enemy enm;
     public GameObject ElectroPIC;
     public GameObject maintext;
     public GameObject maintext1;
     public GameObject maintext2;
     public GameObject safetext;
+    public GameObject enem;
     public Text healthText;
     public GameObject placed;
     public GameObject MainDoor;
@@ -42,6 +44,7 @@ public class Reycast2LVL : MonoBehaviour
     {
         health = PlayerPrefs.GetInt("health", health);
         healthText.text = " здоров'я: " + health;
+        
     }
 
    
@@ -242,10 +245,20 @@ public class Reycast2LVL : MonoBehaviour
         {
             issafe = true;
         }
+      
 
 
 
 
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "emt")
+        {
+            enem.SetActive(true);
+            enm.isenter = true;
+        }
+       
     }
     public void CloseElectro()
     {
