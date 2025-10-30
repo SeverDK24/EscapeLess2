@@ -46,6 +46,8 @@ TagManager:
   - cabel
   - telep
   - doorf
+  - enemy
+  - emt
   layers:
   - Default
   - TransparentFX

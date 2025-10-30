@@ -5,7 +5,7 @@ public class enemy : MonoBehaviour
 {
 
     [SerializeField] Transform target;
-   
+    public int rad = 2;
     public bool isenter = false;
     NavMeshAgent agent; 
     void Start()
@@ -18,16 +18,20 @@ public class enemy : MonoBehaviour
    
     void Update()
     {
-        if (isenter)
+        Collider2D hit = Physics2D.OverlapCircle(transform.position,rad);
+        if (isenter && hit..tag == "player")
         {
             agent.SetDestination(target.position);
         }
          
     }
-    //void OnTriggerEnter2D(Collider2D collision)
-    //{
-        
     
-    //}
+
+     void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position,rad);
+    }
    
+
 }

@@ -18,10 +18,12 @@ public class Reycast2LVL : MonoBehaviour
     private bool isEnter1 = false;
     private bool isPilers = false;
     private bool isEnter3 = false;
+    private bool isClickText = false;
     private bool issafe = false;
     public enemy enm;
     public GameObject ElectroPIC;
     public GameObject maintext;
+    public GameObject runtext;
     public GameObject maintext1;
     public GameObject maintext2;
     public GameObject safetext;
@@ -39,6 +41,8 @@ public class Reycast2LVL : MonoBehaviour
     private float timetostop2 = 0f;
     private float timetowrite3 = 2f;
     private float timetostop3 = 0f;
+    private float timetowrite4 = 2f;
+    private float timetostop4 = 0f;
     private int health = 13;
     void Start()
     {
@@ -51,6 +55,18 @@ public class Reycast2LVL : MonoBehaviour
     void Update()
     {
         healthText.text = health + " здоров'я";
+        if (isClickText)
+        {
+
+            runtext.SetActive(true);
+            timetowrite4 -= Time.deltaTime;
+
+            if (timetostop4 >= timetowrite4)
+            {
+                runtext.SetActive(false);
+                timetowrite4 = 0;
+            }
+        }
         if (isLock && isCabel && isPlank)
         {
             MainDoor.SetActive(false);
@@ -245,6 +261,11 @@ public class Reycast2LVL : MonoBehaviour
         {
             issafe = true;
         }
+        if (collision.gameObject.tag == "enemy")
+        {
+            health -= 1;
+            UpdateText();
+        }
       
 
 
@@ -255,6 +276,7 @@ public class Reycast2LVL : MonoBehaviour
     {
         if (collision.gameObject.tag == "emt")
         {
+            isClickText = true; 
             enem.SetActive(true);
             enm.isenter = true;
         }
@@ -267,5 +289,9 @@ public class Reycast2LVL : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetInt("health", health);
+    }
+    private void UpdateText()
+    {
+        healthText.text = " здоров'я: " + health;
     }
 }
