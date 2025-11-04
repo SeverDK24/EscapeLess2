@@ -292,6 +292,6 @@ public class Reycast2LVL : MonoBehaviour
     }
     private void UpdateText()
     {
-        healthText.text = " здоров'я: " + health;
+        healthText.text = " здоров'я : " + health;
     }
 }

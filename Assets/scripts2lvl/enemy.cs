@@ -15,14 +15,17 @@ public class enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false; 
     }
-
+   //agent.SetDestination(target.position);
    
     void Update()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position,rad);
-        if (isenter && hit.gameObject.tag == "player")
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position,rad);
+        foreach (Collider2D hit in hits)
         {
-            agent.SetDestination(target.position);
+            if (hit.gameObject.GetComponent<Reycast2LVL>()&& isenter)
+            {
+                agent.SetDestination(target.position);
+            }
         }
          
     }
