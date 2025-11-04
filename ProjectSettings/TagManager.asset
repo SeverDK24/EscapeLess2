@@ -48,6 +48,9 @@ TagManager:
   - doorf
   - enemy
   - emt
+  - first
+  - sec
+  - thrd
   layers:
   - Default
   - TransparentFX
