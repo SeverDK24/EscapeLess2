@@ -52,6 +52,9 @@ TagManager:
   - sec
   - thrd
   - frt
+  - axe
+  - eltr
+  - btr
   layers:
   - Default
   - TransparentFX

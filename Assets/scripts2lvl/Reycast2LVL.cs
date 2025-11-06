@@ -35,6 +35,8 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject Teleport;
     public GameObject Zadveryma;
     public GameObject enmtrigg;
+    public GameObject triggerbedroom;
+    public GameObject triggerelectro;
     private float timetowrite = 2f;
     private float timetostop = 0f;
     private float timetowrite1 = 2f;
