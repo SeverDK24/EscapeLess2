@@ -51,6 +51,7 @@ TagManager:
   - first
   - sec
   - thrd
+  - frt
   layers:
   - Default
   - TransparentFX

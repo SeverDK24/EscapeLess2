@@ -20,6 +20,7 @@ public class Reycast2LVL : MonoBehaviour
     private bool isEnter3 = false;
     private bool isClickText = false;
     private bool issafe = false;
+    public bool isAxe = false;
     public enemy enm;
     public GameObject ElectroPIC;
     public GameObject maintext;
@@ -33,6 +34,7 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject MainDoor;
     public GameObject Teleport;
     public GameObject Zadveryma;
+    public GameObject enmtrigg;
     private float timetowrite = 2f;
     private float timetostop = 0f;
     private float timetowrite1 = 2f;
@@ -43,7 +45,8 @@ public class Reycast2LVL : MonoBehaviour
     private float timetostop3 = 0f;
     private float timetowrite4 = 2f;
     private float timetostop4 = 0f;
-    private int health = 13;
+    public int health = 7;
+    public int enemHealth = 10;
     void Start()
     {
         health = PlayerPrefs.GetInt("health", health);
@@ -54,6 +57,7 @@ public class Reycast2LVL : MonoBehaviour
    
     void Update()
     {
+        Debug.Log(enemHealth);
         healthText.text = health + " здоров'я";
         if (isClickText)
         {
@@ -239,6 +243,23 @@ public class Reycast2LVL : MonoBehaviour
                     health = 7;
                 }
             }
+            if (hit.collider != null && hit.collider.tag == "axe")
+            {
+                Destroy(hit.collider.gameObject);
+                isAxe = true;   
+            }
+            if (hit.collider != null && hit.collider.tag == "enemy")
+            {
+                enemHealth -= 1;
+                if (isAxe)
+                {
+                    enemHealth -= 2;
+                }
+                if (enemHealth <= 0)
+                {
+                    Destroy(enem);
+                }
+            }
         }
     }
 
@@ -264,9 +285,10 @@ public class Reycast2LVL : MonoBehaviour
         if (collision.gameObject.tag == "enemy")
         {
             health -= 1;
+            
             UpdateText();
         }
-      
+
 
 
 
@@ -279,6 +301,7 @@ public class Reycast2LVL : MonoBehaviour
             isClickText = true; 
             enem.SetActive(true);
             enm.isenter = true;
+            enmtrigg.SetActive(false);
         }
        
     }
