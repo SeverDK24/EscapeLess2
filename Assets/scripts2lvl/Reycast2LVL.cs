@@ -21,7 +21,13 @@ public class Reycast2LVL : MonoBehaviour
     private bool isClickText = false;
     private bool issafe = false;
     public bool isAxe = false;
+    private bool iseltr;
+    private bool isbtr;
+    private bool iseltr1;
+    private bool isbtr1;
     public enemy enm;
+    public GameObject btr;
+    public GameObject eltr;
     public GameObject ElectroPIC;
     public GameObject maintext;
     public GameObject runtext;
@@ -37,6 +43,8 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject enmtrigg;
     public GameObject triggerbedroom;
     public GameObject triggerelectro;
+    public GameObject pryv1;
+    public GameObject pryv2;    
     private float timetowrite = 2f;
     private float timetostop = 0f;
     private float timetowrite1 = 2f;
@@ -47,6 +55,10 @@ public class Reycast2LVL : MonoBehaviour
     private float timetostop3 = 0f;
     private float timetowrite4 = 2f;
     private float timetostop4 = 0f;
+    private float timepryv = 2f;
+    private float timepryv1 = 2f;
+    private float timedesp = 0f;
+    private float timedesp1 = 0f;
     public int health = 7;
     public int enemHealth = 10;
     void Start()
@@ -59,7 +71,46 @@ public class Reycast2LVL : MonoBehaviour
    
     void Update()
     {
-        Debug.Log(enemHealth);
+        
+        if (iseltr)
+        {
+            pryv2.SetActive(true);
+           
+           
+            timepryv1 -= Time.deltaTime;
+            if (timedesp1 >= timepryv1)
+            {
+                pryv2.SetActive(false);
+                
+            }
+        
+        }
+        if (iseltr1)
+        {
+            updatehealth();
+            Save();
+            iseltr1 = false;    
+        }
+        if (isbtr)
+        {
+
+            pryv1.SetActive(true);
+            
+            timepryv -= Time.deltaTime;
+            if (timedesp >= timepryv)
+            {
+                pryv1.SetActive(false);
+
+            }
+           
+        }
+        if (isbtr1)
+        {
+            updatehealth();
+            Save();
+            isbtr1 = false;
+        }
+       
         healthText.text = health + " здоров'я";
         if (isClickText)
         {
@@ -305,7 +356,19 @@ public class Reycast2LVL : MonoBehaviour
             enm.isenter = true;
             enmtrigg.SetActive(false);
         }
-       
+       if (collision.gameObject.tag == "btr")
+        {
+            isbtr = true;
+            isbtr1 = true;  
+            Destroy(collision.gameObject);  
+        }
+       if (collision.gameObject.tag == "eltr")
+        {
+            iseltr = true;
+            iseltr1 = true;
+            Destroy(collision.gameObject);
+        }
+
     }
     public void CloseElectro()
     {
@@ -318,5 +381,15 @@ public class Reycast2LVL : MonoBehaviour
     private void UpdateText()
     {
         healthText.text = " здоров'я : " + health;
+    }
+    public void ResetHealth()
+    {
+        health = 7;
+        Save();
+        UpdateText();
+    }
+    public void updatehealth()
+    {
+        health -= 1;
     }
 }
