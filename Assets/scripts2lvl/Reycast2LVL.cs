@@ -26,6 +26,7 @@ public class Reycast2LVL : MonoBehaviour
     private bool iseltr1;
     private bool isbtr1;
     public enemy enm;
+    public enemy2 enm2;
     public GameObject btr;
     public GameObject eltr;
     public GameObject ElectroPIC;
@@ -35,6 +36,7 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject maintext2;
     public GameObject safetext;
     public GameObject enem;
+    public GameObject enem2;
     public Text healthText;
     public GameObject placed;
     public GameObject MainDoor;
