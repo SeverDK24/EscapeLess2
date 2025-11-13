@@ -77,11 +77,22 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject[] ghosts;
     public AudioSource music;
     public AudioClip key;
-    public AudioClip code;
+    
     public AudioClip heal;
     public AudioClip openDoor;
     public AudioClip scream;
     public AudioClip screamer;
+    public AudioClip locck;
+    public AudioClip planks;
+    public AudioClip electron;
+    public AudioClip electbutton;
+    public AudioClip enemySpawn;
+    public AudioClip enemyHit;
+    public AudioClip enemyDamage;
+    public AudioClip axe;
+    public AudioClip pilers;
+    public AudioClip mirror;
+    public AudioClip safe;
     void Start()
     {
         health = PlayerPrefs.GetInt("health", health);
@@ -108,7 +119,7 @@ public class Reycast2LVL : MonoBehaviour
             {
                 ghostRandom = Random.Range(0, 3);
                 ghosts[ghostRandom].SetActive(true);
-                //music.PlayOneShot(screamer);
+                music.PlayOneShot(screamer);
                 health -= 1;
                 Save();
                 isGhost = true;
@@ -116,7 +127,7 @@ public class Reycast2LVL : MonoBehaviour
             }
             if (ghostRandom == 2)
             {
-                //music.PlayOneShot(scream);
+                music.PlayOneShot(scream);
             }
 
 
@@ -264,16 +275,19 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "door2")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "bedroomk")
             {
                 isBedroomk = true;  
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
 
             }
             if (hit.collider != null && hit.collider.tag == "Bedroom" && isBedroomk)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
            if (hit.collider != null && hit.collider.tag == "mirror" && isEnter1)
             {
@@ -282,21 +296,25 @@ public class Reycast2LVL : MonoBehaviour
            if (hit.collider != null && hit.collider.tag == "coridk")
             {
                 isCoridk = true;
-                Destroy(hit.collider.gameObject);   
+                Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "safek")
             {
                 isSafek = true;
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "safe2" && isSafek)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "maink")
             {
                 Destroy(hit.collider.gameObject);
                 isMain = true;
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "lock" && isMain)
             {
@@ -307,28 +325,34 @@ public class Reycast2LVL : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
                 isKitchen = true;
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "kitchen" && isKitchen)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "livingk")
             {
                 isLivingk = true;
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "livingr" && isLivingk)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "coridk")
             {
                 isCoridk = true;
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "coridor" && isCoridk)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "hammer")
             {
@@ -345,11 +369,13 @@ public class Reycast2LVL : MonoBehaviour
             {
                 isElectro = true;
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "electro" && isElectro)
             {
                 Destroy(hit.collider.gameObject);
-                
+                music.PlayOneShot(openDoor);
+
             }
             if (hit.collider != null && hit.collider.tag == "button")
             {
@@ -368,6 +394,7 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "medic")
             {
                 health += 1;
+                music.PlayOneShot(heal);
                 Save();
                 healthText.text = health + " здоров'я";
                 //music.PlayOneShot(heal);
@@ -451,14 +478,16 @@ public class Reycast2LVL : MonoBehaviour
     {
         if (collision.gameObject.tag == "emt")
         {
-            isClickText = true; 
+            isClickText = true;
+            
             enem.SetActive(true);
             enm.isenter = true;
             enmtrigg.SetActive(false);
         }
         if (collision.gameObject.tag == "emmt")
         {
-            isClickText2 = true;    
+            isClickText2 = true;
+       ;
             enem2.SetActive(true);
             enm2.isenter = true;
             enmtrigg2.SetActive(false);
@@ -470,12 +499,14 @@ public class Reycast2LVL : MonoBehaviour
        if (collision.gameObject.tag == "btr")
         {
             isbtr = true;
+            music.PlayOneShot(screamer);
             isbtr1 = true;  
             Destroy(collision.gameObject);  
         }
        if (collision.gameObject.tag == "eltr")
         {
             iseltr = true;
+            music.PlayOneShot(screamer);
             iseltr1 = true;
             Destroy(collision.gameObject);
         }

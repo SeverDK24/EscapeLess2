@@ -1573,7 +1573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 201134642543005938, guid: 8772dadd3c39e5e4eb3d96d2729a4853, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 3.65
       objectReference: {fileID: 0}
     - target: {fileID: 201134642543005938, guid: 8772dadd3c39e5e4eb3d96d2729a4853, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9982,7 +9982,7 @@ Transform:
   m_GameObject: {fileID: 942043435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8226, y: 1.233, z: 0}
+  m_LocalPosition: {x: -0.8226, y: 1.247, z: 0}
   m_LocalScale: {x: 0.08963118, y: 0.17416528, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20667,7 +20667,7 @@ Transform:
   m_GameObject: {fileID: 1829014250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.304, y: 4.643, z: 0}
+  m_LocalPosition: {x: -7.304, y: 4.774, z: 0}
   m_LocalScale: {x: 1.37448, y: 1.0431792, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21553,6 +21553,23 @@ MonoBehaviour:
   - {fileID: 839411386}
   - {fileID: 943490464}
   - {fileID: 2090315689}
+  music: {fileID: 0}
+  key: {fileID: 8300000, guid: e61acbd62595e7443b613baaecb299ad, type: 3}
+  heal: {fileID: 8300000, guid: 05c8624a54490544bb2db62a39382549, type: 3}
+  openDoor: {fileID: 8300000, guid: 41fe1720cc87290469fe9f20e7503089, type: 3}
+  scream: {fileID: 8300000, guid: 6f63e9360d611294e80f9a10f6f44393, type: 3}
+  screamer: {fileID: 8300000, guid: f66e54613867e5647b0f0a6182a1852e, type: 3}
+  locck: {fileID: 8300000, guid: a2e87d3d2595b5045b733bfec9ac0766, type: 3}
+  planks: {fileID: 8300000, guid: d0d9b7ecccd8a5d438fecd6c95bb56a0, type: 3}
+  electron: {fileID: 8300000, guid: 4ef581ef15842534ca67c43e038d5acf, type: 3}
+  electbutton: {fileID: 8300000, guid: d022412db15a40d40bc1417e8aca2ce5, type: 3}
+  enemySpawn: {fileID: 8300000, guid: 2b504f6744f89a840a53aeee5c9efed2, type: 3}
+  enemyHit: {fileID: 8300000, guid: 5c373504289190b4c94c266308b4a20f, type: 3}
+  enemyDamage: {fileID: 8300000, guid: ebc99aa5f5d18424dbe62e463739f3d2, type: 3}
+  axe: {fileID: 8300000, guid: 2bbc7f1a1d5e2304ab82726e52b3ff49, type: 3}
+  pilers: {fileID: 8300000, guid: 10853f05aa94d9b4d95b934f5097be06, type: 3}
+  mirror: {fileID: 8300000, guid: 23c704676e211cd448c5583c510dd104, type: 3}
+  safe: {fileID: 8300000, guid: 4abcba54560fe5b4da24a67aead55dbc, type: 3}
 --- !u!1 &1932361043
 GameObject:
   m_ObjectHideFlags: 0
