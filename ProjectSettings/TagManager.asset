@@ -55,6 +55,8 @@ TagManager:
   - axe
   - eltr
   - btr
+  - enemy2
+  - emmt
   layers:
   - Default
   - TransparentFX

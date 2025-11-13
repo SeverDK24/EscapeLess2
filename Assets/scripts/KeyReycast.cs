@@ -59,7 +59,7 @@ public class KeyReycast : MonoBehaviour
     {
         healthText.text = health + " здоров'я";
         timeToEvent -= Time.deltaTime;
-        //Debug.Log(timeToEvent);
+      
         Debug.Log(ghostRandom);
         if (timeEvent >= timeToEvent)
         {

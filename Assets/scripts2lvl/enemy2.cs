@@ -5,14 +5,12 @@ public class enemy2 : MonoBehaviour
 {
 
     [SerializeField] Transform target;
-    public float rad = 1.4f;
+    public float rad = 2f;
     public bool isenter = false;
     private bool istouch = false;
     private bool isTimer = false;
     [SerializeField] Transform point;
-    [SerializeField] Transform point1;
-    public Transform point2;
-    public Transform point3;
+    
     NavMeshAgent agent;
     private float timetoattack = 0f;
     private float attack = 1f;

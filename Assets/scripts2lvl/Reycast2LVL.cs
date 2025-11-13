@@ -19,6 +19,7 @@ public class Reycast2LVL : MonoBehaviour
     private bool isPilers = false;
     private bool isEnter3 = false;
     private bool isClickText = false;
+    private bool isClickText2 = false;
     private bool issafe = false;
     public bool isAxe = false;
     private bool iseltr;
@@ -43,6 +44,7 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject Teleport;
     public GameObject Zadveryma;
     public GameObject enmtrigg;
+    public GameObject enmtrigg2;
     public GameObject triggerbedroom;
     public GameObject triggerelectro;
     public GameObject pryv1;
@@ -57,23 +59,89 @@ public class Reycast2LVL : MonoBehaviour
     private float timetostop3 = 0f;
     private float timetowrite4 = 2f;
     private float timetostop4 = 0f;
+    private float timetowrite5 = 2f;
+    private float timetostop5 = 0f;
     private float timepryv = 2f;
     private float timepryv1 = 2f;
     private float timedesp = 0f;
     private float timedesp1 = 0f;
     public int health = 7;
     public int enemHealth = 10;
+    public int healthEnem = 10;
+    private int randomGhost;
+    private int ghostRandom;
+    private float timeToEvent = 12f;
+    private float timeEvent = 0f;
+    private float timeToDespawn = 1f;
+    private bool isGhost = false;
+    public GameObject[] ghosts;
+    public AudioSource music;
+    public AudioClip key;
+    public AudioClip code;
+    public AudioClip heal;
+    public AudioClip openDoor;
+    public AudioClip scream;
+    public AudioClip screamer;
     void Start()
     {
         health = PlayerPrefs.GetInt("health", health);
         healthText.text = " здоров'я: " + health;
+        music = GetComponent<AudioSource>();
         
     }
 
    
     void Update()
     {
-        
+        timeToEvent -= Time.deltaTime;
+
+        Debug.Log(ghostRandom);
+        if (timeEvent >= timeToEvent)
+        {
+            ghostRandom = Random.Range(0, 3);
+            if (ghostRandom == 0)
+            {
+                timeToEvent = 15f;
+
+            }
+            if (ghostRandom == 1)
+            {
+                ghostRandom = Random.Range(0, 3);
+                ghosts[ghostRandom].SetActive(true);
+                //music.PlayOneShot(screamer);
+                health -= 1;
+                Save();
+                isGhost = true;
+                timeToEvent = 15f;
+            }
+            if (ghostRandom == 2)
+            {
+                //music.PlayOneShot(scream);
+            }
+
+
+
+
+        }
+
+
+
+
+
+        if (isGhost)
+        {
+            timeToDespawn -= Time.deltaTime;
+            if (timeEvent >= timeToDespawn)
+            {
+                ghosts[ghostRandom].SetActive(false);
+
+                isGhost = false;
+                timeToDespawn = 2f;
+            }
+
+
+
+        }
         if (iseltr)
         {
             pryv2.SetActive(true);
@@ -114,6 +182,17 @@ public class Reycast2LVL : MonoBehaviour
         }
        
         healthText.text = health + " здоров'я";
+        if (isClickText2)
+        {
+            runtext.SetActive(true);
+            timetowrite5 -= Time.deltaTime;
+
+            if (timetostop5 >= timetowrite5)
+            {
+                runtext.SetActive(false);
+                timetowrite5 = 0;
+            }
+        }
         if (isClickText)
         {
 
@@ -315,6 +394,20 @@ public class Reycast2LVL : MonoBehaviour
                     Destroy(enem);
                 }
             }
+            if (hit.collider != null && hit.collider.tag == "enemy2")
+            {
+                healthEnem -= 1;    
+                if (isAxe)
+                {
+                    healthEnem -= 2;
+                }
+                if (healthEnem <= 0)
+                {
+                    Destroy(enem2);
+                   //enem2.SetActive(false);
+                }
+
+            }
         }
     }
 
@@ -343,6 +436,11 @@ public class Reycast2LVL : MonoBehaviour
             
             UpdateText();
         }
+        if (collision.gameObject.tag == "enemy2")
+        {
+            health -= 1;
+            UpdateText();
+        }
 
 
 
@@ -358,6 +456,17 @@ public class Reycast2LVL : MonoBehaviour
             enm.isenter = true;
             enmtrigg.SetActive(false);
         }
+        if (collision.gameObject.tag == "emmt")
+        {
+            isClickText2 = true;    
+            enem2.SetActive(true);
+            enm2.isenter = true;
+            enmtrigg2.SetActive(false);
+
+
+        }
+
+
        if (collision.gameObject.tag == "btr")
         {
             isbtr = true;

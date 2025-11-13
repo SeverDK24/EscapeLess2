@@ -11,9 +11,9 @@ public class enemy : MonoBehaviour
     private bool istouch = false;
     private bool isTimer = false;
     [SerializeField] Transform point;
-    [SerializeField] Transform point1;
-    public Transform point2;
-    public Transform point3;
+    //[SerializeField] Transform point1;
+    //public Transform point2;
+    //public Transform point3;
     NavMeshAgent agent;
     private float timetoattack = 0f;
     private float attack = 1f;
