@@ -85,7 +85,7 @@ public class Reycast2LVL : MonoBehaviour
     public AudioClip locck;
     public AudioClip planks;
     public AudioClip electron;
-    public AudioClip electbutton;
+
     public AudioClip enemySpawn;
     public AudioClip enemyHit;
     public AudioClip enemyDamage;
@@ -291,6 +291,7 @@ public class Reycast2LVL : MonoBehaviour
             }
            if (hit.collider != null && hit.collider.tag == "mirror" && isEnter1)
             {
+                music.PlayOneShot(mirror);  
                 Destroy(hit.collider.gameObject);
             }
            if (hit.collider != null && hit.collider.tag == "coridk")
@@ -308,7 +309,7 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "safe2" && isSafek)
             {
                 Destroy(hit.collider.gameObject);
-                music.PlayOneShot(key);
+                music.PlayOneShot(safe);
             }
             if (hit.collider != null && hit.collider.tag == "maink")
             {
@@ -320,6 +321,7 @@ public class Reycast2LVL : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
                 isLock = true;
+                music.PlayOneShot(locck);
             }
             if (hit.collider != null && hit.collider.tag == "kitchenk")
             {
@@ -358,10 +360,12 @@ public class Reycast2LVL : MonoBehaviour
             {
                 isHammer = true;
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(planks);
             }
             if (hit.collider != null && hit.collider.tag == "plank" && isHammer)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(planks);
                 isPlank = true;
                 
             }
@@ -380,14 +384,17 @@ public class Reycast2LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "button")
             {
                 ElectroPIC.SetActive(true);
+                music.PlayOneShot(electron);
             }
             if (hit.collider != null && hit.collider.tag == "pilers")
             {
+                music.PlayOneShot(pilers);    
                 isPilers = true;
                 Destroy(hit.collider.gameObject);
             }
             if (hit.collider != null && hit.collider.tag == "cabel" && isPilers)
             {
+                music.PlayOneShot(pilers);
                 Destroy(hit.collider.gameObject);
                 isCabel = true;
             }
@@ -406,11 +413,13 @@ public class Reycast2LVL : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.tag == "axe")
             {
+                music.PlayOneShot(axe); 
                 Destroy(hit.collider.gameObject);
                 isAxe = true;   
             }
             if (hit.collider != null && hit.collider.tag == "enemy")
             {
+                music.PlayOneShot(enemyDamage);
                 enemHealth -= 1;
                 if (isAxe)
                 {
@@ -423,6 +432,7 @@ public class Reycast2LVL : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.tag == "enemy2")
             {
+                music.PlayOneShot(enemyDamage);
                 healthEnem -= 1;    
                 if (isAxe)
                 {
@@ -479,7 +489,7 @@ public class Reycast2LVL : MonoBehaviour
         if (collision.gameObject.tag == "emt")
         {
             isClickText = true;
-            
+            music.PlayOneShot(enemySpawn);
             enem.SetActive(true);
             enm.isenter = true;
             enmtrigg.SetActive(false);
@@ -487,7 +497,7 @@ public class Reycast2LVL : MonoBehaviour
         if (collision.gameObject.tag == "emmt")
         {
             isClickText2 = true;
-       ;
+            music.PlayOneShot(enemySpawn);
             enem2.SetActive(true);
             enm2.isenter = true;
             enmtrigg2.SetActive(false);
@@ -515,6 +525,7 @@ public class Reycast2LVL : MonoBehaviour
     public void CloseElectro()
     {
         ElectroPIC.SetActive(false);
+        music.PlayOneShot(electron);
     }
     private void Save()
     {

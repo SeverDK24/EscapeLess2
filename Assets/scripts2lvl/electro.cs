@@ -11,15 +11,16 @@ public class electro : MonoBehaviour
     public GameObject first;
     public GameObject last;
     private bool isClicked1 = false;
- 
-   
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public AudioSource music;
+    public AudioClip electbutton;
+
+
     void Start()
     {
-        
+        music = GetComponent<AudioSource>();    
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
       
@@ -41,9 +42,14 @@ public class electro : MonoBehaviour
     }
     public void Dissapear()
     {
+       
         isClicked1 = true;
        
         
         
     }
+    //public void Audio()
+    //{
+    //    music.PlayOneShot(electbutton);
+    //}
 }
