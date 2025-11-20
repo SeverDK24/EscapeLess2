@@ -57,6 +57,9 @@ TagManager:
   - btr
   - enemy2
   - emmt
+  - jail
+  - tosafe
+  - barack
   layers:
   - Default
   - TransparentFX
