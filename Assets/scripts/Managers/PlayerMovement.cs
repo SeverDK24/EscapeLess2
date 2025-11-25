@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public int speed = 3;
+    public float speed = 3f;
     private Rigidbody2D rb;
     
     void Start()
@@ -15,19 +15,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(new Vector2 (0,speed)); 
+            rb.linearVelocity = (new Vector2 (0,speed)); 
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(new Vector2(0, -speed));
+            rb.linearVelocity = (new Vector2(0, -speed));
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(new Vector2(speed,0));
+            rb.linearVelocity = (new Vector2(speed,0));
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(new Vector2(-speed, 0));
+            rb.linearVelocity = (new Vector2(-speed, 0));
         }
     }
 }
