@@ -61,6 +61,7 @@ TagManager:
   - tosafe
   - barack
   - corid
+  - bar
   layers:
   - Default
   - TransparentFX
