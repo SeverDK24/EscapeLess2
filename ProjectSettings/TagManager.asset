@@ -60,6 +60,7 @@ TagManager:
   - jail
   - tosafe
   - barack
+  - corid
   layers:
   - Default
   - TransparentFX
