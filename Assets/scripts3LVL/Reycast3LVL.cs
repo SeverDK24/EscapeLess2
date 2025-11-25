@@ -23,6 +23,10 @@ public class Reycast3LVL : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
             }
+            if (hit.collider != null && hit.collider.tag == "code")
+            {
+                Destroy(hit.collider.gameObject);
+            }
         }
     }
 }
