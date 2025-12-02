@@ -13,6 +13,7 @@ public class Reycast3LVL : MonoBehaviour
     //public GameObject imageWrong;
     public GameObject Safe;
     public int health = 7;
+    public int enemHealth = 10;
     private int insertcounting;
     private float timewrite = 2f;
     private float timestop = 0f;

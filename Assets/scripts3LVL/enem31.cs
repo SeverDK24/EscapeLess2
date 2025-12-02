@@ -1,20 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemy2 : MonoBehaviour
+public class enem31 : MonoBehaviour
 {
-
     [SerializeField] Transform target;
     public float rad = 2f;
     public bool isenter = false;
     private bool istouch = false;
     private bool isTimer = false;
     [SerializeField] Transform point;
-    
+
     NavMeshAgent agent;
     private float timetoattack = 0f;
     private float attack = 1f;
-    public Reycast2LVL health;
+    public Reycast3LVL health;
 
     void Start()
     {
@@ -27,9 +26,9 @@ public class enemy2 : MonoBehaviour
 
     void Update()
     {
-        
+
         agent.SetDestination(point.position);
-        
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, rad);
         foreach (Collider2D hit in hits)
         {
@@ -50,6 +49,4 @@ public class enemy2 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rad);
     }
 
-
-    
 }
