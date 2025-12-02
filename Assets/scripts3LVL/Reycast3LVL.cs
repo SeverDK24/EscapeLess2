@@ -10,7 +10,7 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject code3;
     public GameObject codeimage;
     public GameObject imageRight;
-    public GameObject imageWrong;
+    //public GameObject imageWrong;
     public GameObject Safe;
     public int health = 7;
     private int insertcounting;
@@ -18,6 +18,16 @@ public class Reycast3LVL : MonoBehaviour
     private float timestop = 0f;
     private float timewrite1 = 2f;
     private float timestop1 = 0f;
+    private float timewrite2 = 2f;
+    private float timestop2 = 0f;
+    private float timewrite3 = 2f;
+    private float timestop3 = 0f;
+    private float timewrite4 = 2f;
+    private float timestop4 = 0f;
+    private float timewrite5 = 2f;
+    private float timestop5 = 0f;
+    private float timewrite6 = 2f;
+    private float timestop6 = 0f;
     private bool iscorid = false;
     private bool ismaincode = false;
     private bool iscodeopened = true;
@@ -41,7 +51,7 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(issix);
+        Debug.Log("six" + issix);
 
         if (iscodetrue)
         {
@@ -55,35 +65,97 @@ public class Reycast3LVL : MonoBehaviour
             }
 
         }
+        if (issix)
+        {
+            timewrite6 -= Time.deltaTime;
+            if (timestop6 >= timewrite6)
+            {
+                issix = false;
+                timewrite6 = 3f;
 
-        if (iscodefalse)
+            }
+        }
+        if (isone)
         {
             timewrite1 -= Time.deltaTime;
             if (timestop1 >= timewrite1)
             {
-                imageWrong.SetActive(false);
-                insertcounting = 0;
+                isone = false;
+                timewrite1 = 3f;
 
             }
-
         }
+        if (istwo)
+        {
+            timewrite2 -= Time.deltaTime;
+            if (timestop2 >= timewrite2)
+            {
+                istwo = false;
+                timewrite2 = 3f;
+
+            }
+        }
+        if (isthree)
+        {
+            timewrite3 -= Time.deltaTime;
+            if (timestop3 >= timewrite3)
+            {
+                isthree = false;
+                timewrite3 = 3f;
+
+            }
+        }
+        if (isfour)
+        {
+            timewrite4 -= Time.deltaTime;
+            if (timestop4 >= timewrite4)
+            {
+                isfour = false;
+                timewrite4 = 3f;
+
+            }
+        }
+        if (isfive)
+        {
+            timewrite5 -= Time.deltaTime;
+            if (timestop5 >= timewrite5)
+            {
+                isfive = false;
+                timewrite5 = 3f;
+
+            }
+        }
+       
+
+
+        //if (iscodefalse)
+        //{
+        //    timewrite1 -= Time.deltaTime;
+        //    if (timestop1 >= timewrite1)
+        //    {
+        //        imageWrong.SetActive(false);
+        //        insertcounting = 0;
+
+        //    }
+
+        //}
         if (istwo && isthree && issix)
         {
             imageRight.SetActive(true); 
             iscodetrue = true;
         }
-        if (insertcounting == 3 && istwo == false)
-        {
-            imageWrong.SetActive(true); 
-            iscodefalse = true;
+        //if (insertcounting == 3 && istwo == false)
+        //{
+        //    imageWrong.SetActive(true); 
+        //    iscodefalse = true;
 
-        }
+        //}
 
         if (health >= 7)
         {
             health = 7;
         }
-        Debug.Log(ismaincode);
+        
         Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
         if (Input.GetMouseButtonDown(0))
