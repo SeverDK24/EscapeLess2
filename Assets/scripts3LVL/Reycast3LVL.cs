@@ -9,16 +9,26 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject code2;
     public GameObject code3;
     public GameObject codeimage;
+    public GameObject imageRight;
+    public GameObject imageWrong;
+    public GameObject Safe;
     public int health = 7;
+    private int insertcounting;
+    private float timewrite = 2f;
+    private float timestop = 0f;
+    private float timewrite1 = 2f;
+    private float timestop1 = 0f;
     private bool iscorid = false;
     private bool ismaincode = false;
-    private bool iscodeopened = true;  
+    private bool iscodeopened = true;
     private bool isone = false;
     private bool istwo = false;
     private bool isthree = false;
     private bool isfour = false;
-    private bool isfive = false;    
+    private bool isfive = false;
     private bool issix = false;
+    private bool iscodetrue = false;
+    private bool iscodefalse = false;
     //public AudioSource music;
 
     void Start()
@@ -31,6 +41,44 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(issix);
+
+        if (iscodetrue)
+        {
+            timewrite -= Time.deltaTime;
+            if (timestop >= timewrite)
+            {
+                imageRight.SetActive(false);
+                codeimage.SetActive(false);
+                Safe.SetActive(false);
+
+            }
+
+        }
+
+        if (iscodefalse)
+        {
+            timewrite1 -= Time.deltaTime;
+            if (timestop1 >= timewrite1)
+            {
+                imageWrong.SetActive(false);
+                insertcounting = 0;
+
+            }
+
+        }
+        if (istwo && isthree && issix)
+        {
+            imageRight.SetActive(true); 
+            iscodetrue = true;
+        }
+        if (insertcounting == 3 && istwo == false)
+        {
+            imageWrong.SetActive(true); 
+            iscodefalse = true;
+
+        }
+
         if (health >= 7)
         {
             health = 7;
@@ -51,13 +99,13 @@ public class Reycast3LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "code")
             {
                 Destroy(hit.collider.gameObject);
-                code6.SetActive(true);  
+                code6.SetActive(true);
                 if (ismaincode == false)
                 {
                     CodeMainText.SetActive(true);
                     ismaincode = true;
                 }
-                
+
 
             }
             if (hit.collider != null && hit.collider.tag == "code2")
@@ -106,7 +154,7 @@ public class Reycast3LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "codesafe")
             {
                 codeimage.SetActive(iscodeopened);
-                iscodeopened = !iscodeopened;   
+                iscodeopened = !iscodeopened;
             }
         }
     }
@@ -126,10 +174,33 @@ public class Reycast3LVL : MonoBehaviour
     }
     public void One()
     {
-        isone = true;   
+        isone = true;
+        insertcounting += 1;
     }
     public void Two()
     {
+        istwo = true;
+        insertcounting += 1;
+    }
+    public void Three()
+    {
+        isthree = true;
+        insertcounting += 1;
+    }
+    public void Four()
+    {
+        isfour = true;
+        insertcounting += 1;
+    }
+    public void Five()
+    {
+        isfive = true;
+        insertcounting += 1;
+    }
+    public void Six()
+    {
+        issix = true;
+        insertcounting += 1;
 
     }
 }
