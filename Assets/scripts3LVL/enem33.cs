@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enem31 : MonoBehaviour
+public class enem33 : MonoBehaviour
 {
+
     [SerializeField] Transform target;
     public float rad = 2f;
     public bool isenter = false;
@@ -48,5 +49,5 @@ public class enem31 : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, rad);
     }
-
 }
+

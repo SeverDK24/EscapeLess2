@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class Reycast3LVL : MonoBehaviour
@@ -12,8 +13,9 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject imageRight;
     //public GameObject imageWrong;
     public GameObject Safe;
+   
     public int health = 7;
-    public int enemHealth = 10;
+   
     private int insertcounting;
     private float timewrite = 2f;
     private float timestop = 0f;
@@ -41,6 +43,16 @@ public class Reycast3LVL : MonoBehaviour
     private bool iscodetrue = false;
     private bool iscodefalse = false;
     //public AudioSource music;
+    public GameObject enem;
+    public GameObject enem1;
+    public GameObject enem2;
+    public GameObject enem3;
+    public GameObject enem4;
+    public int enemHealth = 10;
+    public int enemHealth1 = 10;
+    public int enemHealth2 = 10;
+    public int enemHealth3 = 10;
+    public int enemHealth4 = 10;
 
     void Start()
     {
@@ -229,8 +241,107 @@ public class Reycast3LVL : MonoBehaviour
                 codeimage.SetActive(iscodeopened);
                 iscodeopened = !iscodeopened;
             }
+            if (hit.collider != null && hit.collider.tag == "enemy")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealth -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealth <= 0)
+                {
+                    Destroy(enem);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "enemy2")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealth1 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealth1 <= 0)
+                {
+                    Destroy(enem1);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "enemy3")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealth2 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealth2 <= 0)
+                {
+                    Destroy(enem2);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "enemy4")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealth3 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealth3 <= 0)
+                {
+                    Destroy(enem3);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "enemy5")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealth4 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealth4 <= 0)
+                {
+                    Destroy(enem4);
+                }
+            }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            health -= 1;
+
+            UpdateText();
+        }
+        if (collision.gameObject.tag == "enemy2")
+        {
+            health -= 1;
+
+            UpdateText();
+        }
+        if (collision.gameObject.tag == "enemy3")
+        {
+            health -= 1;
+
+            UpdateText();
+        }
+        if (collision.gameObject.tag == "enemy4")
+        {
+            health -= 1;
+
+            UpdateText();
+        }
+        if (collision.gameObject.tag == "enemy5")
+        {
+            health -= 1;
+
+            UpdateText();
+        }
+    }
+
     private void Save()
     {
         PlayerPrefs.SetInt("health", health);

@@ -68,6 +68,9 @@ TagManager:
   - code2
   - code3
   - codesafe
+  - enemy3
+  - enemy4
+  - enemy5
   layers:
   - Default
   - TransparentFX
