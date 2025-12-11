@@ -42,17 +42,24 @@ public class Reycast3LVL : MonoBehaviour
     private bool issix = false;
     private bool iscodetrue = false;
     private bool iscodefalse = false;
+    private bool isgas = false;
     //public AudioSource music;
     public GameObject enem;
     public GameObject enem1;
     public GameObject enem2;
     public GameObject enem3;
     public GameObject enem4;
+    public GameObject enemzomb1;
+    public GameObject enemzomb2;
+    public GameObject enemzomb3;
     public int enemHealth = 10;
     public int enemHealth1 = 10;
     public int enemHealth2 = 10;
     public int enemHealth3 = 10;
     public int enemHealth4 = 10;
+    public int enemHealthZomb1 = 5;
+    public int enemHealthZomb2 = 5;
+    public int enemHealthZomb3 = 5;
 
     void Start()
     {
@@ -306,6 +313,52 @@ public class Reycast3LVL : MonoBehaviour
                     Destroy(enem4);
                 }
             }
+            if (hit.collider != null && hit.collider.tag == "Respawn")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealthZomb1 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealthZomb1 <= 0)
+                {
+                    Destroy(enemzomb1);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "Finish")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealthZomb2 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealthZomb1 <= 0)
+                {
+                    Destroy(enemzomb2);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "safeDoor")
+            {
+                //music.PlayOneShot(enemyDamage);
+                enemHealthZomb3 -= 1;
+                //if (isAxe)
+                //{
+                //    enemHealth -= 2;
+                //}
+                if (enemHealthZomb3 <= 0)
+                {
+                    Destroy(enemzomb3);
+                }
+            }
+            if (hit.collider != null && hit.collider.tag == "gas")
+            {
+                Destroy(hit.collider.gameObject);   
+                isgas = true;
+            }
+
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -340,6 +393,22 @@ public class Reycast3LVL : MonoBehaviour
 
             UpdateText();
         }
+        if (collision.gameObject.tag == "Respawn")
+        {
+            health -= 1;
+            UpdateText();
+        }
+        if (collision.gameObject.tag == "Finish")
+        {
+            health -= 1;
+            UpdateText();
+        }
+        if (collision.gameObject.tag == "safeDoor")
+        {
+            health -= 1;
+            UpdateText();
+        }
+
     }
 
     private void Save()
