@@ -71,6 +71,8 @@ TagManager:
   - enemy3
   - enemy4
   - enemy5
+  - gas
+  - bathtub
   layers:
   - Default
   - TransparentFX

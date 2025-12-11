@@ -31,6 +31,10 @@ public class Reycast3LVL : MonoBehaviour
     private float timestop5 = 0f;
     private float timewrite6 = 2f;
     private float timestop6 = 0f;
+    private float timeinsert = 2f;
+    private float timedestroy = 0f;
+    private float timeinsert1 = 20f;
+    private float timedestroy1 = 0f;
     private bool iscorid = false;
     private bool ismaincode = false;
     private bool iscodeopened = true;
@@ -43,6 +47,8 @@ public class Reycast3LVL : MonoBehaviour
     private bool iscodetrue = false;
     private bool iscodefalse = false;
     private bool isgas = false;
+    private bool ispoisonget = false;
+    private bool ispoisonget1 = false;
     //public AudioSource music;
     public GameObject enem;
     public GameObject enem1;
@@ -52,6 +58,8 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject enemzomb1;
     public GameObject enemzomb2;
     public GameObject enemzomb3;
+    public GameObject poisonBath;
+    public GameObject poisonCage;
     public int enemHealth = 10;
     public int enemHealth1 = 10;
     public int enemHealth2 = 10;
@@ -71,8 +79,27 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("six" + issix);
-
+        if (ispoisonget)
+        {
+            timeinsert -= Time.deltaTime;
+            if (timeinsert <= timedestroy)
+            {
+                poisonBath.SetActive(false);
+                ispoisonget1 = true;
+            }
+        }
+        if (ispoisonget1)
+        {
+            poisonCage.SetActive(true);
+            Destroy(enemzomb1);
+            Destroy(enemzomb2);
+            Destroy(enemzomb3);
+            timeinsert1 -= Time.deltaTime;
+            if (timeinsert1 <= timedestroy1)
+            {
+                poisonCage.SetActive(false);
+            }
+        }
         if (iscodetrue)
         {
             timewrite -= Time.deltaTime;
@@ -357,7 +384,12 @@ public class Reycast3LVL : MonoBehaviour
                 Destroy(hit.collider.gameObject);   
                 isgas = true;
             }
-
+            if (hit.collider != null && hit.collider.tag == "bathtub" && isgas == true)
+            {
+                poisonBath.SetActive(true);
+                ispoisonget = true;
+                
+            }
 
         }
     }
