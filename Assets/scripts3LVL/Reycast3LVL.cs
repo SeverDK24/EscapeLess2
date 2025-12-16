@@ -10,6 +10,7 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject code2;
     public GameObject code3;
     public GameObject codeimage;
+    public GameObject codeimage1;
     public GameObject imageRight;
     //public GameObject imageWrong;
     public GameObject Safe;
@@ -31,6 +32,8 @@ public class Reycast3LVL : MonoBehaviour
     private float timestop5 = 0f;
     private float timewrite6 = 2f;
     private float timestop6 = 0f;
+    private float timewrite7 = 2f;
+    private float timestop7 = 0f;
     private float timeinsert = 2f;
     private float timedestroy = 0f;
     private float timeinsert1 = 20f;
@@ -38,6 +41,7 @@ public class Reycast3LVL : MonoBehaviour
     private bool iscorid = false;
     private bool ismaincode = false;
     private bool iscodeopened = true;
+    private bool iscodeopened1 = true;
     private bool isone = false;
     private bool istwo = false;
     private bool isthree = false;
@@ -49,6 +53,7 @@ public class Reycast3LVL : MonoBehaviour
     private bool isgas = false;
     private bool ispoisonget = false;
     private bool ispoisonget1 = false;
+    private bool iszombietext = false;
     //public AudioSource music;
     public GameObject enem;
     public GameObject enem1;
@@ -60,6 +65,8 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject enemzomb3;
     public GameObject poisonBath;
     public GameObject poisonCage;
+    public GameObject zombtext;
+    public GameObject cage;
     public int enemHealth = 10;
     public int enemHealth1 = 10;
     public int enemHealth2 = 10;
@@ -79,6 +86,17 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
+        if (iszombietext)
+        {
+            zombtext.SetActive(true);
+            timewrite7 -= Time.deltaTime;
+
+            if (timestop7 >= timewrite7)
+            {
+                zombtext.SetActive(false);
+                timewrite7 = 0;
+            }
+        }
         if (ispoisonget)
         {
             timeinsert -= Time.deltaTime;
@@ -390,6 +408,11 @@ public class Reycast3LVL : MonoBehaviour
                 ispoisonget = true;
                 
             }
+            if (hit.collider != null && hit.collider.tag == "safe2")
+            {
+                codeimage1.SetActive(iscodeopened1);
+                iscodeopened1 = !iscodeopened1;
+            }
 
         }
     }
@@ -487,5 +510,16 @@ public class Reycast3LVL : MonoBehaviour
         issix = true;
         insertcounting += 1;
 
+    }
+    public void Zombfree()
+    {
+        if (isgas == false)
+        {
+            iszombietext = true;
+        }
+        if (isgas == true)
+        {
+            cage.SetActive(false);
+        }
     }
 }

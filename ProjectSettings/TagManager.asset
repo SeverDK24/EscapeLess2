@@ -140,5 +140,8 @@ TagManager:
   - name: canvas
     uniqueID: 3899215921
     locked: 0
+  - name: canvtexts
+    uniqueID: 785196605
+    locked: 0
   m_RenderingLayers:
   - Default
