@@ -54,6 +54,9 @@ public class Reycast3LVL : MonoBehaviour
     private bool ispoisonget = false;
     private bool ispoisonget1 = false;
     private bool iszombietext = false;
+    private bool ispoison = false;
+    private bool isstorage = false;
+    private bool issafe = false;
     //public AudioSource music;
     public GameObject enem;
     public GameObject enem1;
@@ -86,6 +89,9 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(issafe);
+        UpdateText();   
+       
         if (iszombietext)
         {
             zombtext.SetActive(true);
@@ -413,6 +419,27 @@ public class Reycast3LVL : MonoBehaviour
                 codeimage1.SetActive(iscodeopened1);
                 iscodeopened1 = !iscodeopened1;
             }
+            if (hit.collider != null && hit.collider.tag == "stor")
+            {
+                Destroy(hit.collider.gameObject); 
+                isstorage = true;   
+            }
+            if (hit.collider != null && hit.collider.tag == "livingr" && isstorage)
+            {
+                Destroy(hit.collider.gameObject);
+                
+            }
+            if (hit.collider != null && hit.collider.tag == "srk")
+            {
+                Destroy(hit.collider.gameObject);
+                issafe = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "tosafe" && issafe)
+            {
+                Destroy(hit.collider.gameObject);
+
+            }
+
 
         }
     }
@@ -463,7 +490,16 @@ public class Reycast3LVL : MonoBehaviour
             health -= 1;
             UpdateText();
         }
+        
 
+    }
+     void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "poison")
+        {
+           health -= 1;
+
+        }
     }
 
     private void Save()

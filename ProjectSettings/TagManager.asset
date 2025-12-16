@@ -73,6 +73,7 @@ TagManager:
   - enemy5
   - gas
   - bathtub
+  - poison
   layers:
   - Default
   - TransparentFX
