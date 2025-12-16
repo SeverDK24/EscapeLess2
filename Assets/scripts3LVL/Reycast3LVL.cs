@@ -57,6 +57,7 @@ public class Reycast3LVL : MonoBehaviour
     private bool ispoison = false;
     private bool isstorage = false;
     private bool issafe = false;
+    private bool isbar = false;
     //public AudioSource music;
     public GameObject enem;
     public GameObject enem1;
@@ -89,7 +90,7 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(issafe);
+        Debug.Log(isbar);
         UpdateText();   
        
         if (iszombietext)
@@ -435,6 +436,16 @@ public class Reycast3LVL : MonoBehaviour
                 issafe = true;
             }
             if (hit.collider != null && hit.collider.tag == "tosafe" && issafe)
+            {
+                Destroy(hit.collider.gameObject);
+
+            }
+            if (hit.collider != null && hit.collider.tag == "bar")
+            {
+                Destroy(hit.collider.gameObject);
+                isbar = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "barack" && isbar)
             {
                 Destroy(hit.collider.gameObject);
 
