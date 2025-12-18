@@ -74,6 +74,8 @@ TagManager:
   - gas
   - bathtub
   - poison
+  - knife
+  - mop
   layers:
   - Default
   - TransparentFX

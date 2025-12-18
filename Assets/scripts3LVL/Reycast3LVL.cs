@@ -1,6 +1,8 @@
 using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 public class Reycast3LVL : MonoBehaviour
 {
     public GameObject Zadveryma;
@@ -38,6 +40,10 @@ public class Reycast3LVL : MonoBehaviour
     private float timedestroy = 0f;
     private float timeinsert1 = 20f;
     private float timedestroy1 = 0f;
+    private float timetowrite = 2f;
+    private float timetostop = 0f;
+    private float timetowrite1 = 2f;
+    private float timetostop1 = 0f;
     private bool iscorid = false;
     private bool ismaincode = false;
     private bool iscodeopened = true;
@@ -58,6 +64,14 @@ public class Reycast3LVL : MonoBehaviour
     private bool isstorage = false;
     private bool issafe = false;
     private bool isbar = false;
+    private bool isjail = false;    
+    private bool isAxe = false;
+    private bool isham = false;
+    private bool isbreaknotreal = false;
+    private bool isbreakreal = false;
+    private bool ismop = false;
+    private bool isgassprayed = false;
+    private bool isknife = false;
     //public AudioSource music;
     public GameObject enem;
     public GameObject enem1;
@@ -70,7 +84,10 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject poisonBath;
     public GameObject poisonCage;
     public GameObject zombtext;
+    public GameObject safetext;
+    public GameObject safeaxetext;
     public GameObject cage;
+    public GameObject safe;
     public int enemHealth = 10;
     public int enemHealth1 = 10;
     public int enemHealth2 = 10;
@@ -79,6 +96,7 @@ public class Reycast3LVL : MonoBehaviour
     public int enemHealthZomb1 = 5;
     public int enemHealthZomb2 = 5;
     public int enemHealthZomb3 = 5;
+    public int SafeHeal = 10;
 
     void Start()
     {
@@ -90,9 +108,35 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isbar);
+        Debug.Log(SafeHeal);
         UpdateText();   
-       
+        if (SafeHeal <= 0)
+        {
+            Destroy(safe);
+        }
+        if (isbreaknotreal)
+        {
+            safetext.SetActive(true);
+            timetowrite -= Time.deltaTime;
+
+            if (timetostop >= timetowrite)
+            {
+                safetext.SetActive(false);
+                timetowrite = 0;
+            }
+        }
+        if (isbreakreal)
+        {
+            safeaxetext.SetActive(true);
+            timetowrite1 -= Time.deltaTime;
+
+            if (timetostop1 >= timetowrite1)
+            {
+                safeaxetext.SetActive(false);
+                timetowrite1 = 0;
+            }
+        }
+
         if (iszombietext)
         {
             zombtext.SetActive(true);
@@ -304,10 +348,15 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealth -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth -= 2;
+                }
+                if (isknife)
+                {
+                    enemHealth -= 5;
+                }
+
                 if (enemHealth <= 0)
                 {
                     Destroy(enem);
@@ -317,10 +366,14 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealth1 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth1 -= 2;
+                }
+                if (isknife)
+                {
+                    enemHealth1 -= 5;
+                }
                 if (enemHealth1 <= 0)
                 {
                     Destroy(enem1);
@@ -330,10 +383,14 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealth2 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth2 -= 2;
+                }
+                if (isknife)
+                {
+                    enemHealth2 -= 5;
+                }
                 if (enemHealth2 <= 0)
                 {
                     Destroy(enem2);
@@ -343,10 +400,14 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealth3 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth3 -= 2;
+                }
+                if (isknife)
+                {
+                    enemHealth3 -= 5;
+                }
                 if (enemHealth3 <= 0)
                 {
                     Destroy(enem3);
@@ -356,10 +417,14 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealth4 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth4 -= 2;
+                }
+                if (isknife)
+                {
+                    enemHealth4 -= 5;
+                }
                 if (enemHealth4 <= 0)
                 {
                     Destroy(enem4);
@@ -369,10 +434,10 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealthZomb1 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth -= 2;
+                }
                 if (enemHealthZomb1 <= 0)
                 {
                     Destroy(enemzomb1);
@@ -382,10 +447,10 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealthZomb2 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth -= 2;
+                }
                 if (enemHealthZomb1 <= 0)
                 {
                     Destroy(enemzomb2);
@@ -395,10 +460,10 @@ public class Reycast3LVL : MonoBehaviour
             {
                 //music.PlayOneShot(enemyDamage);
                 enemHealthZomb3 -= 1;
-                //if (isAxe)
-                //{
-                //    enemHealth -= 2;
-                //}
+                if (isAxe)
+                {
+                    enemHealth -= 2;
+                }
                 if (enemHealthZomb3 <= 0)
                 {
                     Destroy(enemzomb3);
@@ -412,6 +477,7 @@ public class Reycast3LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "bathtub" && isgas == true)
             {
                 poisonBath.SetActive(true);
+                isgassprayed = true;
                 ispoisonget = true;
                 
             }
@@ -450,7 +516,54 @@ public class Reycast3LVL : MonoBehaviour
                 Destroy(hit.collider.gameObject);
 
             }
+            if (hit.collider != null && hit.collider.tag == "mirror" )
+            {
+                //music.PlayOneShot(mirror);
+                Destroy(hit.collider.gameObject);
+            }
+            if (hit.collider != null && hit.collider.tag == "jailk")
+            {
+                Destroy(hit.collider.gameObject);
+                isjail = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "jail" && isjail)
+            {
+                Destroy(hit.collider.gameObject);
 
+            }
+            if (hit.collider != null && hit.collider.tag == "axe")
+            {
+                //music.PlayOneShot(axe);
+                Destroy(hit.collider.gameObject);
+                isAxe = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "knife")
+            {
+                //music.PlayOneShot(axe);
+                Destroy(hit.collider.gameObject);
+                isAxe = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "hammer")
+            {
+                //music.PlayOneShot(axe);
+                Destroy(hit.collider.gameObject);
+                isham = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "safe"&& isAxe == false )
+            {
+                isbreaknotreal = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "safe" && isAxe == true)
+            {
+                isbreakreal = true;
+                SafeHeal -= 1;
+
+            }
+            if (hit.collider != null && hit.collider.tag == "mop")
+            {
+                Destroy(hit.collider.gameObject);
+                ismop = true;
+            }
 
         }
     }
@@ -560,11 +673,11 @@ public class Reycast3LVL : MonoBehaviour
     }
     public void Zombfree()
     {
-        if (isgas == false)
+        if (isgassprayed == false)
         {
             iszombietext = true;
         }
-        if (isgas == true)
+        if (isgassprayed == true)
         {
             cage.SetActive(false);
         }
