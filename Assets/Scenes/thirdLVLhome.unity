@@ -19220,6 +19220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bl4 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1421066986635242086, guid: d56945da4479d64438e777db1470ff17, type: 3}
+      propertyPath: m_TagString
+      value: blood
+      objectReference: {fileID: 0}
     - target: {fileID: 2459148793207220273, guid: d56945da4479d64438e777db1470ff17, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.37
@@ -23472,7 +23476,7 @@ Transform:
   m_GameObject: {fileID: 1981817316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.16, y: 4.613, z: 0}
+  m_LocalPosition: {x: 3.8, y: 4.613, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

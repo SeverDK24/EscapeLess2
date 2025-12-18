@@ -76,6 +76,7 @@ TagManager:
   - poison
   - knife
   - mop
+  - blood
   layers:
   - Default
   - TransparentFX
