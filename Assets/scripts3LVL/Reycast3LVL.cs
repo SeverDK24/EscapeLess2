@@ -88,6 +88,11 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject safeaxetext;
     public GameObject cage;
     public GameObject safe;
+    public GameObject mop;
+    public GameObject portal;
+    public GameObject barrier;
+    public GameObject mainbarrier;
+    public Transform transf;
     public int enemHealth = 10;
     public int enemHealth1 = 10;
     public int enemHealth2 = 10;
@@ -108,11 +113,13 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(SafeHeal);
+        Debug.Log(ismop);
         UpdateText();   
         if (SafeHeal <= 0)
         {
             Destroy(safe);
+            
+          
         }
         if (isbreaknotreal)
         {
@@ -271,6 +278,7 @@ public class Reycast3LVL : MonoBehaviour
         {
             health = 7;
         }
+        
         
         Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
@@ -558,11 +566,17 @@ public class Reycast3LVL : MonoBehaviour
                 isbreakreal = true;
                 SafeHeal -= 1;
 
+
             }
-            if (hit.collider != null && hit.collider.tag == "mop")
+            if (hit.collider != null && hit.collider.tag == "mop" )
+            {
+               Destroy(hit.collider.gameObject);    
+               ismop = true;
+            }
+            if (hit.collider != null && hit.collider.tag == "blood" && ismop)
             {
                 Destroy(hit.collider.gameObject);
-                ismop = true;
+                portal.SetActive(true);
             }
 
         }
@@ -615,6 +629,7 @@ public class Reycast3LVL : MonoBehaviour
             UpdateText();
         }
         
+        
 
     }
      void OnTriggerStay2D(Collider2D collision)
@@ -623,6 +638,12 @@ public class Reycast3LVL : MonoBehaviour
         {
            health -= 1;
 
+        }
+        if (collision.gameObject.tag == "portal")
+        {
+            barrier.SetActive(false);   
+            mainbarrier.SetActive(true);
+            transform.position = transf.position;
         }
     }
 
