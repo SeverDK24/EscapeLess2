@@ -81,6 +81,8 @@ TagManager:
   - art
   - portal2
   - ftrig
+  - houseexit
+  - end
   layers:
   - Default
   - TransparentFX

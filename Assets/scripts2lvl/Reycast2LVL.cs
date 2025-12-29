@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Reycast2LVL : MonoBehaviour
@@ -26,7 +27,7 @@ public class Reycast2LVL : MonoBehaviour
     private bool isbtr;
     private bool iseltr1;
     private bool isbtr1;
-   
+    public Reycast3LVL art;
     public enemy2 enm2;
     public GameObject btr;
     public GameObject eltr;
@@ -43,7 +44,7 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject MainDoor;
     public GameObject Teleport;
     public GameObject Zadveryma;
-   
+    public GameObject Zadveryma2;
     public GameObject enmtrigg2;
     public GameObject triggerbedroom;
     public GameObject triggerelectro;
@@ -74,6 +75,7 @@ public class Reycast2LVL : MonoBehaviour
     private float timeEvent = 0f;
     private float timeToDespawn = 1f;
     private bool isGhost = false;
+    
     public GameObject[] ghosts;
     public AudioSource music;
     public AudioClip key;
@@ -153,6 +155,9 @@ public class Reycast2LVL : MonoBehaviour
 
 
         }
+        
+       
+        
         if (iseltr)
         {
             pryv2.SetActive(true);
@@ -445,6 +450,11 @@ public class Reycast2LVL : MonoBehaviour
                 }
 
             }
+            if (hit.collider != null && hit.collider.tag == "houseexit" && art.isart)
+            {
+                Destroy(hit.collider.gameObject);
+                Zadveryma2.SetActive(false);
+            }
         }
     }
 
@@ -520,7 +530,10 @@ public class Reycast2LVL : MonoBehaviour
             iseltr1 = true;
             Destroy(collision.gameObject);
         }
-
+       if (collision.gameObject.tag == "end")
+        {
+            SceneManager.LoadScene(3);
+        }
     }
     public void CloseElectro()
     {
