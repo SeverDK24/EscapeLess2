@@ -60,7 +60,7 @@ public class KeyReycast : MonoBehaviour
         healthText.text = health + " здоров'я";
         timeToEvent -= Time.deltaTime;
       
-        Debug.Log(ghostRandom);
+        Debug.Log(isClaimed);
         if (timeEvent >= timeToEvent)
         {
             ghostRandom = Random.Range(0, 3);
@@ -214,7 +214,7 @@ public class KeyReycast : MonoBehaviour
                 codeText.text = "зібрано " + codeAmount + "/5";
                 music.PlayOneShot(code);
                 hit.collider.gameObject.SetActive(false);
-                if (codeAmount == 5)
+                if (codeAmount >= 5)
                 {
                  isClaimed = true;
                 }
@@ -231,7 +231,7 @@ public class KeyReycast : MonoBehaviour
                     health = 7;
                 }
             }
-            if (hit.collider != null && hit.collider.tag == "main" && (isClaimed = true))
+            if (hit.collider != null && hit.collider.tag == "main" && isClaimed == true)
             {
                 hit.collider.gameObject.SetActive(false);
             

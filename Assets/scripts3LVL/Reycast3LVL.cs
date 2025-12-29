@@ -153,7 +153,7 @@ public class Reycast3LVL : MonoBehaviour
     {
         timeToEvent -= Time.deltaTime;
 
-        Debug.Log(ghostRandom);
+        Debug.Log("isart"+isart);
         if (timeEvent >= timeToEvent)
         {
             ghostRandom = Random.Range(0, 3);
@@ -753,6 +753,7 @@ public class Reycast3LVL : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 Zadveryma.SetActive(false);
                 music.PlayOneShot(openDoor);
+               
             }
 
         }
@@ -814,7 +815,8 @@ public class Reycast3LVL : MonoBehaviour
     {
         if (collision.gameObject.tag == "ftrig")
         {
-            SceneManager.LoadScene(1);
+            
+            SceneManager.LoadScene(3);
         }
         if (collision.gameObject.tag == "poison")
         {

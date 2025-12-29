@@ -106,9 +106,10 @@ public class Reycast2LVL : MonoBehaviour
    
     void Update()
     {
+        Debug.Log("isart" + art.isart);
         timeToEvent -= Time.deltaTime;
 
-        Debug.Log(ghostRandom);
+        
         if (timeEvent >= timeToEvent)
         {
             ghostRandom = Random.Range(0, 3);
