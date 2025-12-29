@@ -1,6 +1,8 @@
-using System;
+
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 public class Reycast3LVL : MonoBehaviour
@@ -44,6 +46,8 @@ public class Reycast3LVL : MonoBehaviour
     private float timetostop = 0f;
     private float timetowrite1 = 2f;
     private float timetostop1 = 0f;
+    private float timetowrite2 = 2f;
+    private float timetostop2 = 0f;
     private bool iscorid = false;
     private bool ismaincode = false;
     private bool iscodeopened = true;
@@ -72,7 +76,8 @@ public class Reycast3LVL : MonoBehaviour
     private bool ismop = false;
     private bool isgassprayed = false;
     private bool isknife = false;
-    //public AudioSource music;
+    public bool isart = false;
+  
     public GameObject enem;
     public GameObject enem1;
     public GameObject enem2;
@@ -86,13 +91,16 @@ public class Reycast3LVL : MonoBehaviour
     public GameObject zombtext;
     public GameObject safetext;
     public GameObject safeaxetext;
+    public GameObject artext;
     public GameObject cage;
     public GameObject safe;
     public GameObject mop;
     public GameObject portal;
+    public GameObject portal2;
     public GameObject barrier;
     public GameObject mainbarrier;
     public Transform transf;
+    public Transform transf1;
     public int enemHealth = 10;
     public int enemHealth1 = 10;
     public int enemHealth2 = 10;
@@ -102,6 +110,36 @@ public class Reycast3LVL : MonoBehaviour
     public int enemHealthZomb2 = 5;
     public int enemHealthZomb3 = 5;
     public int SafeHeal = 10;
+    private int randomGhost;
+    private int ghostRandom;
+    private float timeToEvent = 12f;
+    private float timeEvent = 0f;
+    private float timeToDespawn = 1f;
+    private bool isGhost = false;
+    public GameObject[] ghosts;
+    public AudioSource music;
+    public AudioClip key;
+    public AudioClip gasleak;
+    public AudioClip heal;
+    public AudioClip openDoor;
+    public AudioClip scream;
+    public AudioClip screamer;
+    public AudioClip locck;
+    public AudioClip planks;
+    public AudioClip electron;
+    public AudioClip art;
+    public AudioClip enemySpawn;
+    public AudioClip enemyHit;
+    public AudioClip enemyDamage;
+    public AudioClip axe;
+    public AudioClip code;
+    public AudioClip mirror;
+    public AudioClip safes;
+    public AudioClip gasspray;
+    public AudioClip picking;
+    public AudioClip blood;
+    public AudioClip safehit;
+    public AudioClip portall;
 
     void Start()
     {
@@ -113,6 +151,60 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
+        timeToEvent -= Time.deltaTime;
+
+        Debug.Log(ghostRandom);
+        if (timeEvent >= timeToEvent)
+        {
+            ghostRandom = Random.Range(0, 3);
+            if (ghostRandom == 0)
+            {
+                timeToEvent = 15f;
+
+            }
+            if (ghostRandom == 1)
+            {
+                ghostRandom = Random.Range(0, 3);
+                ghosts[ghostRandom].SetActive(true);
+                music.PlayOneShot(screamer);
+                health -= 1;
+                Save();
+                isGhost = true;
+                timeToEvent = 15f;
+            }
+            if (ghostRandom == 2)
+            {
+                music.PlayOneShot(scream);
+            }
+
+
+
+
+        }
+
+
+
+
+
+        if (isGhost)
+        {
+            timeToDespawn -= Time.deltaTime;
+            if (timeEvent >= timeToDespawn)
+            {
+                ghosts[ghostRandom].SetActive(false);
+
+                isGhost = false;
+                timeToDespawn = 2f;
+            }
+
+
+
+        }
+        if (isart)
+        {
+            artext.SetActive(true);
+            portal2.SetActive(true);
+        }
         Debug.Log(ismop);
         UpdateText();   
         if (SafeHeal <= 0)
@@ -120,6 +212,17 @@ public class Reycast3LVL : MonoBehaviour
             Destroy(safe);
             
           
+        }
+        if (isart)
+        {
+            artext.SetActive(true);
+            timetowrite2 -= Time.deltaTime;
+
+            if (timetostop2 >= timetowrite2)
+            {
+                artext.SetActive(false);
+                timetowrite2 = 0;
+            }
         }
         if (isbreaknotreal)
         {
@@ -166,6 +269,7 @@ public class Reycast3LVL : MonoBehaviour
         }
         if (ispoisonget1)
         {
+            
             poisonCage.SetActive(true);
             Destroy(enemzomb1);
             Destroy(enemzomb2);
@@ -287,13 +391,16 @@ public class Reycast3LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "door")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "mirror")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(mirror);
             }
             if (hit.collider != null && hit.collider.tag == "code")
             {
+                music.PlayOneShot(code);
                 Destroy(hit.collider.gameObject);
                 code6.SetActive(true);
                 if (ismaincode == false)
@@ -306,6 +413,7 @@ public class Reycast3LVL : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.tag == "code2")
             {
+                music.PlayOneShot(code);
                 Destroy(hit.collider.gameObject);
                 code2.SetActive(true);
                 if (ismaincode == false)
@@ -317,6 +425,7 @@ public class Reycast3LVL : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.tag == "code3")
             {
+                music.PlayOneShot(code);
                 Destroy(hit.collider.gameObject);
                 code3.SetActive(true);
                 if (ismaincode == false)
@@ -328,8 +437,9 @@ public class Reycast3LVL : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.tag == "medic")
             {
+                music.PlayOneShot(heal);
                 health += 1;
-                //music.PlayOneShot(heal);
+                music.PlayOneShot(heal);
                 Save();
                 healthText.text = health + " здоров'я";
                 //music.PlayOneShot(heal);
@@ -340,229 +450,278 @@ public class Reycast3LVL : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "corid")
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(key);
                 iscorid = true;
             }
 
             if (hit.collider != null && hit.collider.tag == "coridor" && iscorid)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
             }
             if (hit.collider != null && hit.collider.tag == "codesafe")
             {
                 codeimage.SetActive(iscodeopened);
+                music.PlayOneShot(safes);
                 iscodeopened = !iscodeopened;
             }
             if (hit.collider != null && hit.collider.tag == "enemy")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealth -= 1;
                 if (isAxe)
                 {
                     enemHealth -= 2;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (isknife)
                 {
                     enemHealth -= 5;
+                    music.PlayOneShot(enemyDamage);
                 }
 
                 if (enemHealth <= 0)
                 {
                     Destroy(enem);
+                    music.PlayOneShot(enemyHit);
                 }
             }
             if (hit.collider != null && hit.collider.tag == "enemy2")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealth1 -= 1;
                 if (isAxe)
                 {
                     enemHealth1 -= 2;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (isknife)
                 {
                     enemHealth1 -= 5;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (enemHealth1 <= 0)
                 {
                     Destroy(enem1);
+                    music.PlayOneShot(enemyHit);
                 }
             }
             if (hit.collider != null && hit.collider.tag == "enemy3")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealth2 -= 1;
                 if (isAxe)
                 {
+                    music.PlayOneShot(enemyDamage);
                     enemHealth2 -= 2;
                 }
                 if (isknife)
                 {
+                    music.PlayOneShot(enemyDamage);
                     enemHealth2 -= 5;
                 }
                 if (enemHealth2 <= 0)
                 {
                     Destroy(enem2);
+                    music.PlayOneShot(enemyHit);
                 }
             }
             if (hit.collider != null && hit.collider.tag == "enemy4")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealth3 -= 1;
                 if (isAxe)
                 {
                     enemHealth3 -= 2;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (isknife)
                 {
                     enemHealth3 -= 5;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (enemHealth3 <= 0)
                 {
                     Destroy(enem3);
+                    music.PlayOneShot(enemyHit);
                 }
             }
             if (hit.collider != null && hit.collider.tag == "enemy5")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealth4 -= 1;
                 if (isAxe)
                 {
                     enemHealth4 -= 2;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (isknife)
                 {
                     enemHealth4 -= 5;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (enemHealth4 <= 0)
                 {
                     Destroy(enem4);
+                    music.PlayOneShot(enemyHit);
                 }
             }
             if (hit.collider != null && hit.collider.tag == "Respawn")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealthZomb1 -= 1;
                 if (isAxe)
                 {
-                    enemHealth -= 2;
+                    enemHealthZomb1 -= 2;
+                    music.PlayOneShot(enemyDamage);
+                }
+                if (isknife)
+                {
+                    enemHealthZomb1 -= 5;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (enemHealthZomb1 <= 0)
                 {
+                    music.PlayOneShot(enemyHit);
                     Destroy(enemzomb1);
+                    
                 }
             }
             if (hit.collider != null && hit.collider.tag == "Finish")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealthZomb2 -= 1;
                 if (isAxe)
                 {
-                    enemHealth -= 2;
+                    enemHealthZomb2 -= 2;
                 }
-                if (enemHealthZomb1 <= 0)
+                if (isknife)
                 {
+                    enemHealthZomb2 -= 5;
+                    music.PlayOneShot(enemyDamage);
+                }
+                if (enemHealthZomb2 <= 0)
+                {
+                    music.PlayOneShot(enemyHit);
                     Destroy(enemzomb2);
+                    
                 }
             }
             if (hit.collider != null && hit.collider.tag == "safeDoor")
             {
-                //music.PlayOneShot(enemyDamage);
+                music.PlayOneShot(enemyDamage);
                 enemHealthZomb3 -= 1;
                 if (isAxe)
                 {
-                    enemHealth -= 2;
+                    enemHealthZomb3 -= 2;
+                }
+                if (isknife)
+                {
+                    enemHealthZomb3 -= 5;
+                    music.PlayOneShot(enemyDamage);
                 }
                 if (enemHealthZomb3 <= 0)
                 {
+                    music.PlayOneShot(enemyHit);
                     Destroy(enemzomb3);
                 }
             }
             if (hit.collider != null && hit.collider.tag == "gas")
             {
                 Destroy(hit.collider.gameObject);   
+                music.PlayOneShot(picking);
                 isgas = true;
             }
             if (hit.collider != null && hit.collider.tag == "bathtub" && isgas == true)
             {
                 poisonBath.SetActive(true);
+                music.PlayOneShot(gasspray);
                 isgassprayed = true;
                 ispoisonget = true;
                 
             }
             if (hit.collider != null && hit.collider.tag == "safe2")
             {
+                music.PlayOneShot(safes);
                 codeimage1.SetActive(iscodeopened1);
                 iscodeopened1 = !iscodeopened1;
             }
             if (hit.collider != null && hit.collider.tag == "stor")
             {
                 Destroy(hit.collider.gameObject); 
-                isstorage = true;   
+                isstorage = true;
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "livingr" && isstorage)
             {
                 Destroy(hit.collider.gameObject);
-                
+                music.PlayOneShot(openDoor);
+
             }
             if (hit.collider != null && hit.collider.tag == "srk")
             {
                 Destroy(hit.collider.gameObject);
                 issafe = true;
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "tosafe" && issafe)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
 
             }
             if (hit.collider != null && hit.collider.tag == "bar")
             {
                 Destroy(hit.collider.gameObject);
                 isbar = true;
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "barack" && isbar)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
 
             }
             if (hit.collider != null && hit.collider.tag == "mirror" )
             {
-                //music.PlayOneShot(mirror);
+                music.PlayOneShot(mirror);
                 Destroy(hit.collider.gameObject);
             }
             if (hit.collider != null && hit.collider.tag == "jailk")
             {
                 Destroy(hit.collider.gameObject);
                 isjail = true;
+                music.PlayOneShot(key);
             }
             if (hit.collider != null && hit.collider.tag == "jail" && isjail)
             {
                 Destroy(hit.collider.gameObject);
+                music.PlayOneShot(openDoor);
 
             }
             if (hit.collider != null && hit.collider.tag == "axe")
             {
-                //music.PlayOneShot(axe);
+                music.PlayOneShot(axe);
                 Destroy(hit.collider.gameObject);
                 isAxe = true;
             }
             if (hit.collider != null && hit.collider.tag == "knife")
             {
-                //music.PlayOneShot(axe);
+                music.PlayOneShot(axe);
                 Destroy(hit.collider.gameObject);
-                isAxe = true;
+                isknife = true;
             }
-            if (hit.collider != null && hit.collider.tag == "hammer")
-            {
-                //music.PlayOneShot(axe);
-                Destroy(hit.collider.gameObject);
-                isham = true;
-            }
+            
             if (hit.collider != null && hit.collider.tag == "safe"&& isAxe == false )
             {
                 isbreaknotreal = true;
+                music.PlayOneShot(safes);
             }
             if (hit.collider != null && hit.collider.tag == "safe" && isAxe == true)
             {
+                music.PlayOneShot(safehit);
+
+
                 isbreakreal = true;
                 SafeHeal -= 1;
 
@@ -572,11 +731,28 @@ public class Reycast3LVL : MonoBehaviour
             {
                Destroy(hit.collider.gameObject);    
                ismop = true;
+                music.PlayOneShot(picking);
             }
             if (hit.collider != null && hit.collider.tag == "blood" && ismop)
             {
                 Destroy(hit.collider.gameObject);
                 portal.SetActive(true);
+                music.PlayOneShot(blood);
+
+
+
+            }
+            if (hit.collider != null && hit.collider.tag == "art")
+            {
+                Destroy(hit.collider.gameObject);
+                isart = true;
+                music.PlayOneShot(art);
+            }
+            if (hit.collider != null && hit.collider.tag == "exit" && isart)
+            {
+                Destroy(hit.collider.gameObject);
+                Zadveryma.SetActive(false);
+                music.PlayOneShot(openDoor);
             }
 
         }
@@ -628,12 +804,18 @@ public class Reycast3LVL : MonoBehaviour
             health -= 1;
             UpdateText();
         }
+       
+
         
         
 
     }
      void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "ftrig")
+        {
+            SceneManager.LoadScene(1);
+        }
         if (collision.gameObject.tag == "poison")
         {
            health -= 1;
@@ -644,6 +826,15 @@ public class Reycast3LVL : MonoBehaviour
             barrier.SetActive(false);   
             mainbarrier.SetActive(true);
             transform.position = transf.position;
+            music.PlayOneShot(portall);
+        }
+        if (collision.gameObject.tag == "portal2")
+        {
+            music.PlayOneShot(portall);
+            mainbarrier.SetActive(false);
+            barrier.SetActive(true);
+            transform.position = transf1.position;
+            portal.SetActive(false);
         }
     }
 

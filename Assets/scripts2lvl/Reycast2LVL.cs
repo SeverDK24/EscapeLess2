@@ -26,7 +26,7 @@ public class Reycast2LVL : MonoBehaviour
     private bool isbtr;
     private bool iseltr1;
     private bool isbtr1;
-    public enemy enm;
+   
     public enemy2 enm2;
     public GameObject btr;
     public GameObject eltr;
@@ -36,14 +36,14 @@ public class Reycast2LVL : MonoBehaviour
     public GameObject maintext1;
     public GameObject maintext2;
     public GameObject safetext;
-    public GameObject enem;
+   
     public GameObject enem2;
     public Text healthText;
     public GameObject placed;
     public GameObject MainDoor;
     public GameObject Teleport;
     public GameObject Zadveryma;
-    public GameObject enmtrigg;
+   
     public GameObject enmtrigg2;
     public GameObject triggerbedroom;
     public GameObject triggerelectro;
@@ -417,19 +417,19 @@ public class Reycast2LVL : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 isAxe = true;   
             }
-            if (hit.collider != null && hit.collider.tag == "enemy")
-            {
-                music.PlayOneShot(enemyDamage);
-                enemHealth -= 1;
-                if (isAxe)
-                {
-                    enemHealth -= 2;
-                }
-                if (enemHealth <= 0)
-                {
-                    Destroy(enem);
-                }
-            }
+            //if (hit.collider != null && hit.collider.tag == "enemy")
+            //{
+            //    music.PlayOneShot(enemyDamage);
+            //    enemHealth -= 1;
+            //    if (isAxe)
+            //    {
+            //        enemHealth -= 2;
+            //    }
+            //    if (enemHealth <= 0)
+            //    {
+            //        Destroy(enem);
+            //    }
+            //}
             if (hit.collider != null && hit.collider.tag == "enemy2")
             {
                 music.PlayOneShot(enemyDamage);
@@ -486,14 +486,14 @@ public class Reycast2LVL : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "emt")
-        {
-            isClickText = true;
-            music.PlayOneShot(enemySpawn);
-            enem.SetActive(true);
-            enm.isenter = true;
-            enmtrigg.SetActive(false);
-        }
+    //    if (collision.gameObject.tag == "emt")
+    //    {
+    //        isClickText = true;
+    //        music.PlayOneShot(enemySpawn);
+    //        enem.SetActive(true);
+    //        enm.isenter = true;
+    //        enmtrigg.SetActive(false);
+    //    }
         if (collision.gameObject.tag == "emmt")
         {
             isClickText2 = true;

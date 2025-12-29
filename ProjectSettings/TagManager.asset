@@ -78,6 +78,9 @@ TagManager:
   - mop
   - blood
   - portal
+  - art
+  - portal2
+  - ftrig
   layers:
   - Default
   - TransparentFX
