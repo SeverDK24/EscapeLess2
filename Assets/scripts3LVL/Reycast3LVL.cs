@@ -151,9 +151,14 @@ public class Reycast3LVL : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(5);
+            PlayerPrefs.DeleteAll();
+        }
         timeToEvent -= Time.deltaTime;
 
-        Debug.Log("isart"+isart);
+        
         if (timeEvent >= timeToEvent)
         {
             ghostRandom = Random.Range(0, 3);
@@ -816,7 +821,7 @@ public class Reycast3LVL : MonoBehaviour
         if (collision.gameObject.tag == "ftrig")
         {
             
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
         if (collision.gameObject.tag == "poison")
         {

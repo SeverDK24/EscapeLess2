@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KeyReycast : MonoBehaviour
@@ -57,6 +58,11 @@ public class KeyReycast : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(5);
+            PlayerPrefs.DeleteAll();
+        }
         healthText.text = health + " здоров'я";
         timeToEvent -= Time.deltaTime;
       
@@ -226,7 +232,7 @@ public class KeyReycast : MonoBehaviour
                 healthText.text = health + " здоров'я";
                 music.PlayOneShot(heal);
                 hit.collider.gameObject.SetActive(false);
-                if (health >= 7)
+                if (health >= 8)
                 {
                     health = 7;
                 }

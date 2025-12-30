@@ -17,7 +17,7 @@ public class FirstTOsecond : MonoBehaviour
     {
         if (collision.gameObject.tag == "exit")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }

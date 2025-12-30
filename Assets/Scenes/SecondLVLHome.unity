@@ -20353,6 +20353,10 @@ PrefabInstance:
       propertyPath: replaced
       value: 
       objectReference: {fileID: 1947722935}
+    - target: {fileID: 3537851941823954402, guid: 65d6d0ab141e85e44833fb3778b6af6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4688990958200999233, guid: 65d6d0ab141e85e44833fb3778b6af6a, type: 3}
       propertyPath: safek
       value: 

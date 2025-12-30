@@ -16,7 +16,7 @@ public class SecondTOthird : MonoBehaviour
     {
         if (collision.gameObject.tag == "telep")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 }

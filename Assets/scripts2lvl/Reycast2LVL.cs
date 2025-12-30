@@ -106,6 +106,11 @@ public class Reycast2LVL : MonoBehaviour
    
     void Update()
     {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(5);
+            PlayerPrefs.DeleteAll();
+        }
         Debug.Log("isart" + art.isart);
         timeToEvent -= Time.deltaTime;
 
@@ -531,10 +536,10 @@ public class Reycast2LVL : MonoBehaviour
             iseltr1 = true;
             Destroy(collision.gameObject);
         }
-       if (collision.gameObject.tag == "end")
-        {
-            SceneManager.LoadScene(3);
-        }
+       //if (collision.gameObject.tag == "end")
+       // {
+       //     SceneManager.LoadScene(3);
+       // }
     }
     public void CloseElectro()
     {
