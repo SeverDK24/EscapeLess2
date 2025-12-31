@@ -2770,14 +2770,14 @@ RectTransform:
   m_GameObject: {fileID: 456219229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8835, y: 0.73, z: 1}
+  m_LocalScale: {x: 0.890568, y: 0.987252, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 493258147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -294.9, y: 164.9}
+  m_AnchoredPosition: {x: -728, y: 436}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456219231
@@ -2870,10 +2870,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4616,7 +4616,7 @@ RectTransform:
   m_GameObject: {fileID: 826952258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.72, y: 0.86, z: 1}
+  m_LocalScale: {x: 0.83246404, y: 1.141392, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1724992790}
@@ -4624,7 +4624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -331, y: 121.72}
+  m_AnchoredPosition: {x: -742, y: 360}
   m_SizeDelta: {x: 500, y: 93.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826952260
@@ -10814,6 +10814,22 @@ PrefabInstance:
     - target: {fileID: 2889774491651682289, guid: f7e5b834286beac4382617be249c0839, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985831495278985502, guid: f7e5b834286beac4382617be249c0839, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390345660229635473, guid: f7e5b834286beac4382617be249c0839, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390345660229635473, guid: f7e5b834286beac4382617be249c0839, type: 3}
+      propertyPath: near clip plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390345660229635473, guid: f7e5b834286beac4382617be249c0839, type: 3}
+      propertyPath: orthographic size
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8220547802003734052, guid: f7e5b834286beac4382617be249c0839, type: 3}
       propertyPath: main

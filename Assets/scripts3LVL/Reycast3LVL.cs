@@ -1,10 +1,10 @@
 
-using UnityEditor.PackageManager;
+
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
+
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
+
 public class Reycast3LVL : MonoBehaviour
 {
     public GameObject Zadveryma;
